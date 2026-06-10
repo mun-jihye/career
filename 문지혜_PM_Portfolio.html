@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>문지혜 | Product Manager Portfolio — AI Product & Internal Tooling</title>
+<style>
+  /* ===== Reset & Base ===== */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Pretendard", "Noto Sans KR", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #1f2937;
+    background: #f8fafc;
+    line-height: 1.75;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== Layout ===== */
+  .container { max-width: 1040px; margin: 0 auto; padding: 0 28px; }
+  .page { background: #fff; }
+  section { padding: 60px 0; border-bottom: 1px solid #e5e7eb; }
+  section:last-of-type { border-bottom: none; }
+
+  /* ===== Header ===== */
+  .header {
+    background: linear-gradient(135deg, #0c2a4d 0%, #173d6e 55%, #2563eb 100%);
+    color: #fff;
+    padding: 72px 0 64px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: "";
+    position: absolute;
+    top: -120px; right: -80px;
+    width: 380px; height: 380px;
+    background: radial-gradient(circle, rgba(96,165,250,0.30) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: "";
+    position: absolute;
+    bottom: -140px; left: -100px;
+    width: 360px; height: 360px;
+    background: radial-gradient(circle, rgba(34,211,238,0.20) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header .container { position: relative; z-index: 2; }
+  .role-badge {
+    display: inline-block;
+    background: rgba(96,165,250,0.18);
+    border: 1px solid rgba(96,165,250,0.45);
+    color: #dbeafe;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 22px;
+  }
+  .header h1 {
+    font-size: 46px;
+    font-weight: 800;
+    line-height: 1.18;
+    letter-spacing: -0.7px;
+    margin-bottom: 16px;
+  }
+  .header h1 .accent { color: #60a5fa; }
+  .header .subtitle {
+    font-size: 18px;
+    color: #cbd5e1;
+    margin-bottom: 30px;
+    max-width: 800px;
+  }
+  .header .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 28px;
+    color: #94a3b8;
+    font-size: 14px;
+    margin-top: 8px;
+  }
+  .header .meta span strong { color: #e2e8f0; font-weight: 600; }
+  .header .contact {
+    margin-top: 22px;
+    font-size: 13.5px;
+    color: #cbd5e1;
+  }
+  .header .contact a { color: #93c5fd; text-decoration: none; }
+
+  /* ===== Section title ===== */
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 32px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid #0f172a;
+  }
+  .section-title .num {
+    color: #2563eb;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+  }
+  .section-title h2 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.4px;
+  }
+  .section-desc {
+    color: #475569;
+    font-size: 14.5px;
+    margin: -16px 0 30px;
+  }
+
+  /* ===== Summary / Strengths ===== */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 24px;
+  }
+  .summary-item {
+    display: flex;
+    gap: 14px;
+    padding: 18px 18px;
+    background: #f1f5f9;
+    border-left: 4px solid #2563eb;
+    border-radius: 6px;
+  }
+  .summary-item .icon {
+    flex-shrink: 0;
+    width: 32px; height: 32px;
+    background: #2563eb;
+    color: #fff;
+    border-radius: 7px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px;
+    font-weight: 800;
+  }
+  .summary-item h4 { font-size: 14.5px; color: #0f172a; margin-bottom: 4px; }
+  .summary-item p { font-size: 13.5px; color: #334155; line-height: 1.65; }
+  .summary-item strong { color: #0f172a; }
+
+  /* ===== Quote ===== */
+  .quote {
+    background: #fef3c7;
+    border-left: 4px solid #f59e0b;
+    padding: 16px 22px;
+    border-radius: 6px;
+    margin: 28px 0 8px;
+    font-size: 14.5px;
+    color: #78350f;
+    line-height: 1.7;
+  }
+  .quote strong { color: #92400e; }
+  .quote .who { display: block; font-size: 12.5px; color: #b45309; margin-top: 6px; font-style: italic; }
+
+  /* ===== KPI Cards ===== */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-top: 8px;
+  }
+  .kpi {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 22px 18px;
+    text-align: center;
+    transition: all 0.2s;
+  }
+  .kpi:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(15,23,42,0.08); }
+  .kpi .num {
+    font-size: 32px;
+    font-weight: 800;
+    color: #2563eb;
+    line-height: 1;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+  .kpi .label {
+    font-size: 12.5px;
+    color: #475569;
+    font-weight: 600;
+  }
+  .kpi .sub {
+    font-size: 11.5px;
+    color: #94a3b8;
+    margin-top: 6px;
+  }
+
+  /* ===== Skill / Stack ===== */
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .stack-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 20px 22px;
+  }
+  .stack-card h4 {
+    color: #0f172a;
+    font-size: 14.5px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .stack-card h4::before {
+    content: "";
+    display: inline-block;
+    width: 7px; height: 7px;
+    background: #2563eb;
+    border-radius: 50%;
+  }
+  .tag {
+    display: inline-block;
+    background: #dbeafe;
+    color: #1e40af;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    margin: 3px 4px 3px 0;
+  }
+  .tag.gray { background: #f1f5f9; color: #475569; }
+  .tag.green { background: #d1fae5; color: #065f46; }
+  .tag.amber { background: #fef3c7; color: #92400e; }
+
+  /* ===== Project Card ===== */
+  .project {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 30px 32px;
+    margin-bottom: 26px;
+    position: relative;
+  }
+  .project.featured {
+    border-left: 5px solid #2563eb;
+    box-shadow: 0 2px 14px rgba(37,99,235,0.10);
+  }
+  .project-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 14px;
+    padding-bottom: 16px;
+    border-bottom: 1px dashed #cbd5e1;
+  }
+  .project-title {
+    font-size: 21px;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.3px;
+  }
+  .project-title .featured-badge {
+    display: inline-block;
+    background: #2563eb;
+    color: #fff;
+    padding: 3px 9px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-left: 8px;
+    vertical-align: middle;
+    letter-spacing: 0.4px;
+  }
+  .project-period {
+    color: #64748b;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .project-tags { margin-bottom: 16px; }
+  .role-tag {
+    display: inline-block;
+    background: #fef3c7;
+    color: #92400e;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 2px 4px 2px 0;
+  }
+  .role-tag.blue { background: #dbeafe; color: #1e40af; }
+  .role-tag.green { background: #d1fae5; color: #065f46; }
+  .project h4 {
+    font-size: 14px;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 20px 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: 0.2px;
+  }
+  .project h4::before {
+    content: "▸";
+    color: #2563eb;
+  }
+  .project p { font-size: 14px; color: #334155; margin-bottom: 8px; }
+  .project ul { margin-left: 4px; margin-top: 4px; }
+  .project ul li {
+    list-style: none;
+    padding: 5px 0 5px 22px;
+    font-size: 14px;
+    color: #334155;
+    position: relative;
+    line-height: 1.7;
+  }
+  .project ul li::before {
+    content: "•";
+    position: absolute;
+    left: 6px;
+    color: #2563eb;
+    font-weight: 700;
+    font-size: 18px;
+    top: 1px;
+  }
+  .project ul li strong { color: #0f172a; }
+
+  /* ===== Phase grid (PM 관점: 문제정의 → 의사결정 → 임팩트) ===== */
+  .phase-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 14px 0 6px;
+  }
+  .phase {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+  .phase .label {
+    font-size: 10.5px;
+    color: #2563eb;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .phase .text {
+    font-size: 12.5px;
+    color: #334155;
+    line-height: 1.55;
+  }
+  .phase.problem { background: #fef2f2; border-color: #fecaca; }
+  .phase.problem .label { color: #b91c1c; }
+  .phase.action  { background: #eff6ff; border-color: #bfdbfe; }
+  .phase.action  .label { color: #1d4ed8; }
+  .phase.decide  { background: #fefce8; border-color: #fde68a; }
+  .phase.decide  .label { color: #a16207; }
+  .phase.impact  { background: #ecfdf5; border-color: #a7f3d0; }
+  .phase.impact  .label { color: #047857; }
+
+  /* ===== Result Box ===== */
+  .result-box {
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    border-left: 4px solid #10b981;
+    padding: 16px 20px;
+    border-radius: 6px;
+    margin: 16px 0;
+  }
+  .result-box .result-label {
+    font-size: 11.5px;
+    font-weight: 800;
+    color: #047857;
+    letter-spacing: 1.2px;
+    margin-bottom: 6px;
+  }
+  .result-box ul li { padding: 3px 0 3px 22px !important; }
+  .result-box ul li::before { color: #10b981 !important; }
+
+  /* ===== Compare Table ===== */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 13.5px;
+  }
+  .compare-table th,
+  .compare-table td {
+    border: 1px solid #e2e8f0;
+    padding: 11px 14px;
+    text-align: left;
+    vertical-align: top;
+  }
+  .compare-table th {
+    background: #f1f5f9;
+    color: #0f172a;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .compare-table tbody tr:nth-child(even) { background: #fafbfc; }
+  .compare-table .as-is { color: #be123c; font-weight: 600; }
+  .compare-table .to-be { color: #047857; font-weight: 700; }
+
+  /* ===== Stakeholders box ===== */
+  .stakeholders {
+    background: #faf5ff;
+    border-left: 4px solid #9333ea;
+    padding: 14px 18px;
+    border-radius: 6px;
+    margin: 14px 0;
+    font-size: 13.5px;
+    color: #4c1d95;
+  }
+  .stakeholders strong { color: #6b21a8; }
+
+  /* ===== Timeline ===== */
+  .timeline {
+    position: relative;
+    padding-left: 32px;
+  }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 8px; top: 6px; bottom: 6px;
+    width: 2px;
+    background: linear-gradient(to bottom, #2563eb, #cbd5e1);
+  }
+  .timeline-item {
+    position: relative;
+    padding-bottom: 24px;
+  }
+  .timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -29px; top: 6px;
+    width: 14px; height: 14px;
+    background: #fff;
+    border: 3px solid #2563eb;
+    border-radius: 50%;
+  }
+  .timeline-item .when {
+    font-size: 12.5px;
+    font-weight: 800;
+    color: #2563eb;
+    letter-spacing: 0.6px;
+    margin-bottom: 4px;
+  }
+  .timeline-item .title {
+    font-size: 15.5px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 4px;
+  }
+  .timeline-item .desc { font-size: 13.5px; color: #475569; }
+
+  /* ===== Footer ===== */
+  .footer {
+    background: #0f172a;
+    color: #94a3b8;
+    text-align: center;
+    padding: 32px 0;
+    font-size: 13px;
+  }
+  .footer strong { color: #e2e8f0; }
+  .footer .links { margin-top: 8px; }
+  .footer .links a { color: #93c5fd; text-decoration: none; margin: 0 8px; }
+
+  /* ===== Print ===== */
+  @media print {
+    body { background: #fff; font-size: 12px; }
+    .header { background: #0c2a4d !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    section { padding: 28px 0; page-break-inside: avoid; }
+    .project { page-break-inside: avoid; box-shadow: none; }
+    .kpi:hover { transform: none; }
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 768px) {
+    .header h1 { font-size: 32px; }
+    .summary-grid, .stack-grid, .phase-grid { grid-template-columns: 1fr; }
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .project { padding: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header class="header">
+  <div class="container">
+    <span class="role-badge">PRODUCT MANAGER · AI PRODUCT · DATA-DRIVEN</span>
+    <h1>"Why"에서 출발해 <span class="accent">사용자 문제</span>를<br/>제품으로 풀어내는 PM</h1>
+    <p class="subtitle">
+      AI 프로덕트(디자인 온톨로지 · LLM Agent · 내부 도구) 영역에서 <strong>문제 정의 → 데이터 기반 의사결정 → 임팩트 측정</strong>까지 주도해
+      14만+ 템플릿 규모 AI 시스템을 안정적으로 launching한 경험을 보유한 PM 지원자입니다.
+    </p>
+    <div class="meta">
+      <span><strong>Role</strong> · Product Manager (지원) / 現 AI Product Engineer</span>
+      <span><strong>Domain</strong> · AI Ontology · LLM Agent · Data Pipeline · Internal Tooling</span>
+      <span><strong>Strength</strong> · Problem Definition · Data-driven · Cross-functional</span>
+    </div>
+    <div class="contact">
+      📧 <a href="mailto:jhmun@miridih.com">jhmun@miridih.com</a> &nbsp;·&nbsp; 미리디(미리캔버스) AI Lab 재직 중
+    </div>
+  </div>
+</header>
+
+<div class="page">
+
+<!-- ===================== 01 ABOUT ===================== -->
+<section id="about">
+  <div class="container">
+    <div class="section-title">
+      <span class="num">01</span>
+      <h2>About Me</h2>
+    </div>
+    <p class="section-desc">
+      엔지니어로서 14만+ 템플릿 AI 시스템을 직접 운영해온 경험을 바탕으로, "기획서를 기다리기보다 <strong>문제를 직접 정의하고 해결</strong>"하는 방식으로 일해왔습니다.
+      엔지니어 출신 PM으로서 <strong>기술적 실현 가능성과 비즈니스 임팩트를 동시에 판단</strong>할 수 있는 강점을 가지고 있습니다.
+    </p>
+    <div class="summary-grid">
+      <div class="summary-item">
+        <span class="icon">P</span>
+        <div>
+          <h4>Product Thinking</h4>
+          <p>기능 관점이 아닌 <strong>"왜 만드는가(Why)"</strong>에서 출발해 사용자 문제를 정의·해결. 비용 대시보드는 기획서 없이 직접 기획·구축.</p>
+        </div>
+      </div>
+      <div class="summary-item">
+        <span class="icon">D</span>
+        <div>
+          <h4>Data-driven Decision</h4>
+          <p>주관이 아닌 <strong>수치로 의사결정</strong>. 50가지 PoC 버전 · TP/TN/FP 지표로 모델 선택, 32만+ 검수 데이터로 정책 재설계.</p>
+        </div>
+      </div>
+      <div class="summary-item">
+        <span class="icon">C</span>
+        <div>
+          <h4>Cross-functional 협업</h4>
+          <p>PM · AI Researcher · 백엔드 엔지니어 · 검탐/MORDOR 스쿼드와의 협업 · 문서화. Confluence/Jira 기반 <strong>실행 가능한 기획 문서</strong> 작성에 강함.</p>
+        </div>
+      </div>
+      <div class="summary-item">
+        <span class="icon">O</span>
+        <div>
+          <h4>Ownership & Execution</h4>
+          <p>기술 부채를 스스로 정의하고 EC2 수동 운영 → AWS Batch·Airflow로 전환. <strong>위에서 시키지 않아도 끝까지 가져가는</strong> 실행력.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="quote">
+      "Why에서 출발해 프로세스/프로젝트 맥락을 파악하고 How를 도출하는 점이 강점. <strong>PM 하셔도 잘하실 것 같다</strong>."
+      <span class="who">— 2025 하반기 성과리뷰 (직속 리드 피드백)</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 02 KPI HIGHLIGHTS ===================== -->
+<section id="kpi" style="background:#f8fafc;">
+  <div class="container">
+    <div class="section-title">
+      <span class="num">02</span>
+      <h2>Impact Highlights</h2>
+    </div>
+    <p class="section-desc">PM 관점의 정량 성과 — "사용자/운영자가 체감하는 임팩트"를 수치로 정리했습니다.</p>
+    <div class="kpi-grid">
+      <div class="kpi">
+        <div class="num">88<span style="font-size:18px;">%</span></div>
+        <div class="label">육안 검사 대상 감소</div>
+        <div class="sub">정합성 모델 개선 (5.9만→7.2천)</div>
+      </div>
+      <div class="kpi">
+        <div class="num">143,790</div>
+        <div class="label">Pages 자동 추출 launching</div>
+        <div class="sub">Agentic RLSC 전체 추출</div>
+      </div>
+      <div class="kpi">
+        <div class="num">97<span style="font-size:18px;">%</span></div>
+        <div class="label">Component 정답률 (목표 95%)</div>
+        <div class="sub">3회 검증 모두 목표 초과</div>
+      </div>
+      <div class="kpi">
+        <div class="num">50<span style="font-size:18px;">개</span></div>
+        <div class="label">PoC 버전 실험</div>
+        <div class="sub">grid 1~25 × 2모델 비교</div>
+      </div>
+      <div class="kpi" style="margin-top:14px;">
+        <div class="num">73<span style="font-size:18px;">개+</span></div>
+        <div class="label">Linter 품질 규칙</div>
+        <div class="sub">데이터 품질 기준 설계</div>
+      </div>
+      <div class="kpi" style="margin-top:14px;">
+        <div class="num">329,649</div>
+        <div class="label">Ambiguity 데이터 분석</div>
+        <div class="sub">RLSC v2 정책 재설계 근거</div>
+      </div>
+      <div class="kpi" style="margin-top:14px;">
+        <div class="num">5종</div>
+        <div class="label">2.0 Json 배치 운영</div>
+        <div class="sub">변환·검증·저장·합성</div>
+      </div>
+      <div class="kpi" style="margin-top:14px;">
+        <div class="num">~80<span style="font-size:18px;">%</span></div>
+        <div class="label">CI 빌드 시간 단축</div>
+        <div class="sub">Dockerfile·캐시 최적화</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 03 PM CORE COMPETENCIES ===================== -->
+<section id="competency">
+  <div class="container">
+    <div class="section-title">
+      <span class="num">03</span>
+      <h2>PM Core Competencies</h2>
+    </div>
+    <p class="section-desc">PM 직무에 필요한 6가지 핵심 역량과 실제 경험 매핑입니다.</p>
+    <div class="stack-grid">
+      <div class="stack-card">
+        <h4>문제 정의 (Problem Framing)</h4>
+        <p style="font-size:13px; color:#475569; margin-bottom:8px;">사용자/비즈니스 문제를 직접 발굴하고 가설을 세우는 능력</p>
+        <span class="tag">RLSC v2 킥오프 설계</span>
+        <span class="tag">OpenAI 비용 가시화</span>
+        <span class="tag">기술 부채 자가 식별</span>
+      </div>
+      <div class="stack-card">
+        <h4>데이터 기반 의사결정</h4>
+        <p style="font-size:13px; color:#475569; margin-bottom:8px;">정량 데이터로 방향을 결정하고 이해관계자를 설득</p>
+        <span class="tag">TP/TN/FP 분석</span>
+        <span class="tag">50가지 PoC 비교</span>
+        <span class="tag">실험 설계</span>
+        <span class="tag">Accept Rate</span>
+      </div>
+      <div class="stack-card">
+        <h4>우선순위 & 의사결정</h4>
+        <p style="font-size:13px; color:#475569; margin-bottom:8px;">트레이드오프를 인식하고 끊어낼 줄 아는 판단력</p>
+        <span class="tag">Canva 크롤링 중단</span>
+        <span class="tag">EKS → EC2 → Batch 단계 전환</span>
+        <span class="tag">Tier 분리</span>
+      </div>
+      <div class="stack-card">
+        <h4>Cross-functional 협업</h4>
+        <p style="font-size:13px; color:#475569; margin-bottom:8px;">엔지니어 · AI 리서처 · 디자인허브 · 검탐 등 다양한 stakeholder 조율</p>
+        <span class="tag">AI Researcher · BE</span>
+        <span class="tag">검탐 · MORDOR 스쿼드</span>
+        <span class="tag">Confluence/Jira 문서화</span>
+      </div>
+      <div class="stack-card">
+        <h4>제품 launch & 운영</h4>
+        <p style="font-size:13px; color:#475569; margin-bottom:8px;">PoC → MVP → 대규모 launching까지 한 사이클 책임</p>
+        <span class="tag">14만+ 추출 launching</span>
+        <span class="tag">배치 5종 운영</span>
+        <span class="tag">SQS · Airflow 워크플로우</span>
+      </div>
+      <div class="stack-card">
+        <h4>도메인 이해 (AI Product)</h4>
+        <p style="font-size:13px; color:#475569; margin-bottom:8px;">LLM Agent · 데이터 파이프라인 도메인을 깊이 이해</p>
+        <span class="tag">LLM 프롬프트 설계</span>
+        <span class="tag">디자인 온톨로지</span>
+        <span class="tag">Agent System</span>
+        <span class="tag">데이터 품질 시스템</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 04 KEY PROJECTS ===================== -->
+<section id="projects">
+  <div class="container">
+    <div class="section-title">
+      <span class="num">04</span>
+      <h2>Key Projects</h2>
+    </div>
+    <p class="section-desc">
+      각 프로젝트를 PM이 일하는 흐름인 <strong>"문제 정의 → 접근 → 의사결정 → 임팩트"</strong> 4단계로 정리했습니다.
+    </p>
+
+    <!-- =============== PROJECT 1: Agentic RLSC =============== -->
+    <div class="project featured">
+      <div class="project-head">
+        <div class="project-title">
+          Agentic RLSC 추출 모듈 — 14만+ pages 대규모 launching
+          <span class="featured-badge">FLAGSHIP</span>
+        </div>
+        <div class="project-period">2025 H2 (하반기 핵심 성과)</div>
+      </div>
+      <div class="project-tags">
+        <span class="role-tag blue">Product Owner</span>
+        <span class="role-tag">AI Agent System</span>
+        <span class="role-tag green">14만+ Scale Launch</span>
+      </div>
+
+      <div class="phase-grid">
+        <div class="phase problem">
+          <div class="label">PROBLEM</div>
+          <div class="text">LLM이 한 번에 정확한 RLSC를 추출하기 어려움 → 검수·피드백 루프 필요</div>
+        </div>
+        <div class="phase action">
+          <div class="label">APPROACH</div>
+          <div class="text">Generator · Evaluator · 피드백 프롬프트로 Agent System 설계 · Langfuse 비용 추적 통합</div>
+        </div>
+        <div class="phase decide">
+          <div class="label">DECISION</div>
+          <div class="text">3회 정답률 검증(Page 90%, Component 97%) 후 전체 14만+ launching 진행 결정</div>
+        </div>
+        <div class="phase impact">
+          <div class="label">IMPACT</div>
+          <div class="text">목표(Page 80%, Comp 95%) 모든 구간 초과 · 143,790 pages launching 완료</div>
+        </div>
+      </div>
+
+      <h4>배경 · 사용자 문제</h4>
+      <ul>
+        <li><strong>비즈니스 문제</strong>: 디자인 온톨로지(RLSC) 데이터가 다운스트림(AIP 생성, 내용시각화, 검색)의 품질을 결정 — 14만+ 템플릿에 대해 일관된 구조 추출이 필요</li>
+        <li><strong>기술적 한계</strong>: 단일 LLM 호출로는 정답률이 부족 → "피드백을 받아 재추론"하는 멀티 에이전트 구조가 필요하다는 가설</li>
+      </ul>
+
+      <h4>나의 역할 · 의사결정 포인트</h4>
+      <ul>
+        <li><strong>Product Owner 역할</strong>: 가장 앞단 모듈인 <strong>RLSC Generator</strong> 직접 구현 — 주요 모듈 중 가장 큰 단위 담당</li>
+        <li><strong>프롬프트·피드백 흐름 설계</strong>: Evaluator 평가 결과를 LLM에 어떻게 다시 주입할지 정책 설계</li>
+        <li><strong>품질 게이트 정의</strong>: 1차(98샘플)→2차(20샘플)→3차(100랜덤)→내부 검수 1,000건 단계적 검증 — <strong>"몇 % 달성하면 전체 launching 한다"</strong>는 기준을 사전 합의</li>
+        <li><strong>비용·관측 가능성</strong>: Langfuse 연동으로 LLM 호출 비용·트레이스 추적 (운영 PM 관점)</li>
+      </ul>
+
+      <div class="stakeholders">
+        <strong>Stakeholders</strong>: PM · AI Researcher (RLSC 검증 기준) · 백엔드 엔지니어 (pg-boss 큐, 워커) · MORDOR 스쿼드 · DB 엔지니어 (Supabase 스키마)
+      </div>
+
+      <div class="result-box">
+        <div class="result-label">★ IMPACT</div>
+        <ul>
+          <li>품질: Page <strong>89.8 / 90.0 / 90%</strong>, Component <strong>97.75 / 97.89 / 97%</strong> — 3회 검증 모두 목표 초과</li>
+          <li>스케일: <strong>약 143,790 pages</strong> 전체 추출 launching 결정 · 진행</li>
+          <li>리드 평가: <em>"기대 초과 · 이해하기 어려운 프로젝트·난해한 용어 환경에서 목표 달성"</em></li>
+        </ul>
+      </div>
+
+      <h4>기술 스택 · 참고</h4>
+      <span class="tag">TypeScript</span><span class="tag">Next.js</span><span class="tag">Supabase</span><span class="tag">pg-boss</span><span class="tag">OpenAI API</span><span class="tag">Langfuse</span>
+      <span class="tag gray">Jira: MOR-595 / MOR-622 / MOR-577</span>
+    </div>
+
+    <!-- =============== PROJECT 2: 정합성 모델 개선 =============== -->
+    <div class="project featured">
+      <div class="project-head">
+        <div class="project-title">
+          템플릿 정합성 모델 개선 — 운영 부담 88% 감소
+          <span class="featured-badge">FLAGSHIP</span>
+        </div>
+        <div class="project-period">2025 H1</div>
+      </div>
+      <div class="project-tags">
+        <span class="role-tag blue">Experiment Owner</span>
+        <span class="role-tag">데이터 품질 시스템</span>
+        <span class="role-tag green">88% 운영 부담 감소</span>
+      </div>
+
+      <div class="phase-grid">
+        <div class="phase problem">
+          <div class="label">PROBLEM</div>
+          <div class="text">디자인 1.0→2.0 변환 후 5.9만 건 육안 검사가 운영팀에 큰 부담</div>
+        </div>
+        <div class="phase action">
+          <div class="label">APPROACH</div>
+          <div class="text">grid size 1~25 × 모델 2종 = 50가지 버전 PoC 실험 설계 · 실행</div>
+        </div>
+        <div class="phase decide">
+          <div class="label">DECISION</div>
+          <div class="text">TP/TN/FP 지표로 dreamsim 채택 — 주관이 아닌 수치로 결정</div>
+        </div>
+        <div class="phase impact">
+          <div class="label">IMPACT</div>
+          <div class="text">육안 검사 5.9만→7.2천 (<strong>88% 감소</strong>) · 정합성 배치 반영</div>
+        </div>
+      </div>
+
+      <h4>배경 · 문제 정의</h4>
+      <ul>
+        <li>1.0(xml) → 2.0(json) 변환 후 기존 썸네일과 차이가 없는지 검증해야 했고, AI 판단 + 사람 육안검사 2단계 운영</li>
+        <li>기존 dinoV2 모델은 6.9만 중 1.1만만 "유사"로 판단 → 결과적으로 <strong>5.9만 건이 사람의 육안검사로 흘러감</strong></li>
+        <li>운영 PM 관점에서 "사람의 일을 얼마나 줄일 수 있는가"가 진짜 KPI</li>
+      </ul>
+
+      <h4>실험 설계 · 의사결정</h4>
+      <table class="compare-table">
+        <thead>
+          <tr><th>구분</th><th class="as-is">AS-IS (dinoV2)</th><th class="to-be">TO-BE (dreamsim)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>템플릿 수</td><td>69,979</td><td>69,494</td></tr>
+          <tr><td>"유사" 판단</td><td>10,940</td><td>62,269 (약 5.7배 ↑)</td></tr>
+          <tr><td>육안 검사 대상</td><td class="as-is">59,039</td><td class="to-be">7,225 (88% ↓)</td></tr>
+        </tbody>
+      </table>
+      <ul>
+        <li><strong>실험 매트릭스</strong>: grid 1~25 × 모델 2종 = 50가지 버전을 모두 돌려 결과 추출</li>
+        <li><strong>판단 기준</strong>: TP/TN/FP 등 정량 지표 — "어떤 모델이 더 좋아 보인다"가 아닌 수치 근거</li>
+        <li><strong>이해관계자 정렬</strong>: 리드와 데이터 공유 후 객관적 기준으로 dreamsim 채택 합의</li>
+      </ul>
+
+      <div class="result-box">
+        <div class="result-label">★ IMPACT</div>
+        <ul>
+          <li>육안검사 운영 부담 <strong>88% 감소</strong> — 사람의 일이 실제로 줄어든 KPI</li>
+          <li>정합성 배치 프로세스에 dreamsim 모델 정식 반영</li>
+        </ul>
+      </div>
+      <span class="tag">DinoV2</span><span class="tag">dreamsim</span><span class="tag">정량 실험</span>
+      <span class="tag gray">Jira: AI-785</span>
+    </div>
+
+    <!-- =============== PROJECT 3: OpenAI 비용 대시보드 =============== -->
+    <div class="project featured">
+      <div class="project-head">
+        <div class="project-title">
+          OpenAI 비용 대시보드 — 기획서 없이 직접 정의한 운영 도구
+          <span class="featured-badge">SELF-INITIATED</span>
+        </div>
+        <div class="project-period">2025 H2</div>
+      </div>
+      <div class="project-tags">
+        <span class="role-tag blue">Initiator · 직접 기획</span>
+        <span class="role-tag">내부 도구 PM</span>
+        <span class="role-tag">Cost Governance</span>
+      </div>
+
+      <div class="phase-grid">
+        <div class="phase problem">
+          <div class="label">PROBLEM</div>
+          <div class="text">전사 OpenAI 비용을 누가 얼마나 쓰는지 모름 · OpenAI Costs API는 계정 합계만 제공</div>
+        </div>
+        <div class="phase action">
+          <div class="label">APPROACH</div>
+          <div class="text">사용 현황 전수 조사 → API 분석 → 분류 체계 설계 → 스키마 정의 → 수집 파이프라인 구축</div>
+        </div>
+        <div class="phase decide">
+          <div class="label">DECISION</div>
+          <div class="text">Usage API + 모델별 단가 계산 채택 · Project=환경 / API Key=기능 분류 체계 수립</div>
+        </div>
+        <div class="phase impact">
+          <div class="label">IMPACT</div>
+          <div class="text">프로젝트·API Key·모델 단위 비용 가시화 · 예산 관리 가능 기반 구축</div>
+        </div>
+      </div>
+
+      <h4>왜 이 프로젝트가 PM 역량을 가장 잘 보여주나</h4>
+      <ul>
+        <li><strong>기획서 없이 스스로 정의</strong>: 누구도 시키지 않은 문제를 직접 발견 → "여러 팀이 OpenAI 쓰는데 비용 관리가 안 되네" 라는 인사이트에서 출발</li>
+        <li><strong>도구 한계 식별 → 대안 설계</strong>: OpenAI Costs API는 계정 합계만 제공 → 프로젝트별 분해 불가 → <strong>Usage API + 자체 단가 계산</strong>이 유일한 방법임을 문서화</li>
+        <li><strong>분류 체계 거버넌스</strong>: 환경=Project, 기능=API Key, 이름 규칙(`기능-환경`, 예: `MDI-workflow-dev`) — 향후 다른 팀이 새 키를 만들 때도 자동으로 분류되는 시스템</li>
+        <li><strong>장애 대응 정책</strong>: OpenAI 응답 스키마 변경 시 Job 실패 → <strong>mergeSchema 옵션</strong>으로 자동 적응</li>
+      </ul>
+
+      <h4>실제 산출물 (PM 문서 역량)</h4>
+      <ul>
+        <li>OpenAI 사용 현황 전수 조사 보고서 (Default Key 문제 정리)</li>
+        <li>"OpenAI 비용 대시보드 구축 방안" 문서 — 엔드포인트, curl 예시, 전제 조건, Help Needed 정리</li>
+        <li>"OpenAI 분류 체계 (가안)" 문서 — Key 명명 규칙, 모델별 집계 방법</li>
+        <li>"OpenAI API 비용 테이블 스키마" — 컬럼 정의, 비용 계산식(캐시 할인 포함)</li>
+      </ul>
+
+      <div class="result-box">
+        <div class="result-label">★ IMPACT</div>
+        <ul>
+          <li>전사 OpenAI 비용을 프로젝트·키·모델·일자 단위로 추적 가능</li>
+          <li>API Key 분류 거버넌스가 자리잡아 신규 팀 사용 시에도 자동 분류</li>
+          <li><strong>"기획서를 기다리기보다 문제를 직접 정의하고 해결"</strong>이라는 PM 강점의 대표 사례</li>
+        </ul>
+      </div>
+      <span class="tag">OpenAI Usage API</span><span class="tag">DataBricks Job</span><span class="tag">Cost Governance</span><span class="tag">Secret Scope</span>
+    </div>
+
+    <!-- =============== PROJECT 4: xml-converter 자동화 =============== -->
+    <div class="project">
+      <div class="project-head">
+        <div class="project-title">
+          xml-image-csv-converter 자동화 — 기술부채를 안정 자동화로
+        </div>
+        <div class="project-period">2025 H2</div>
+      </div>
+      <div class="project-tags">
+        <span class="role-tag blue">Initiator · 자가 정의</span>
+        <span class="role-tag">DevOps · Workflow</span>
+      </div>
+
+      <div class="phase-grid">
+        <div class="phase problem">
+          <div class="label">PROBLEM</div>
+          <div class="text">대량 추출 시 EC2 6대 수동 기동·종료 — 운영 개입 부담, 실패 재시도 없음</div>
+        </div>
+        <div class="phase action">
+          <div class="label">APPROACH</div>
+          <div class="text">단계적 전환: Docker화 → CI/CD → Airflow+EC2 (과도기) → AWS Batch (최종)</div>
+        </div>
+        <div class="phase decide">
+          <div class="label">DECISION</div>
+          <div class="text">EKS는 일정 부담으로 보류 → EC2로 빠르게 가치 검증 후 Batch로 최종 전환</div>
+        </div>
+        <div class="phase impact">
+          <div class="label">IMPACT</div>
+          <div class="text">수동 EC2 운영 제거 · 자동 확장/축소 · CI 빌드 80% 단축</div>
+        </div>
+      </div>
+
+      <h4>PM 관점의 핵심 의사결정</h4>
+      <ul>
+        <li><strong>이상적 목표(EKS) vs 현실적 일정</strong>: 원래 Airflow + EKS(KubernetesPodOperator)가 정답이지만, EKS 연동·IAM·네트워크 구축 일정이 크다고 판단 → <strong>EC2 과도기 → Batch 최종</strong>으로 단계화. <em>"완벽한 설계보다 빠르게 가치를 내는 길"</em>을 선택</li>
+        <li><strong>리드 평가</strong>: "기술 부채를 주도적으로 정리 — 문제를 직접 정의하고 해결하는 주도성"</li>
+      </ul>
+
+      <h4>스택 · 결과</h4>
+      <ul>
+        <li>Docker · ECR · GitHub Actions(OIDC) · Airflow DAG · AWS Batch</li>
+        <li>Dockerfile 레이어 최적화 + GitHub Actions 캐시 → <strong>재빌드 시 약 80% 단축</strong></li>
+      </ul>
+      <span class="tag">Docker</span><span class="tag">AWS Batch</span><span class="tag">Airflow</span><span class="tag">GitHub Actions</span><span class="tag">ECR</span>
+    </div>
+
+    <!-- =============== PROJECT 5: AI 학습 데이터 적재 파이프라인 =============== -->
+    <div class="project">
+      <div class="project-head">
+        <div class="project-title">
+          AI 학습 데이터 적재 파이프라인 중앙 집중화
+        </div>
+        <div class="project-period">2025</div>
+      </div>
+      <div class="project-tags">
+        <span class="role-tag blue">Workflow PM</span>
+        <span class="role-tag">SQS · Airflow</span>
+      </div>
+
+      <h4>문제 정의 · AS-IS</h4>
+      <table class="compare-table">
+        <thead>
+          <tr><th>단계</th><th class="as-is">AS-IS (수동)</th><th class="to-be">TO-BE</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>① 데이터 요청</td><td>리서처가 MA에 온콜로 요청</td><td>Airflow가 자동 트리거</td></tr>
+          <tr><td>② 수집</td><td>MA가 데이터브릭스로 수집 → 링크 전달</td><td>자동 쿼리 · 수집</td></tr>
+          <tr><td>③ CSV 추출</td><td>리서처가 GPU 서버에 수동 업로드</td><td>자동 적재</td></tr>
+          <tr><td>④ 스크립트 실행</td><td>파이프라인마다 프로세스 익혀야 함</td><td>중앙 집중 워크플로우</td></tr>
+        </tbody>
+      </table>
+
+      <h4>나의 역할 · 의사결정</h4>
+      <ul>
+        <li><strong>두 단계 launching</strong>: 먼저 SQS 기반 자동화로 빠르게 가치 검증(매주 월요일 10시, GPU 자동 적재) → 이후 Airflow로 중앙 집중 전환</li>
+        <li><strong>이해관계자</strong>: AI Researcher (데이터 요구) · MA 스쿼드 (수집) · 검탐 스쿼드 (저퀄리티 분류 모델 데이터셋)</li>
+        <li><strong>병행 작업</strong>: 저퀄리티 분류 모델 데이터셋 정의(승인/거부 라벨, 유저픽 기반 고/저품질 70만/50만), 데이터브릭스 SQL 쿼리 작성</li>
+      </ul>
+
+      <div class="result-box">
+        <div class="result-label">★ IMPACT</div>
+        <ul>
+          <li>리서처의 <strong>온콜 요청 · 수동 작업 제거</strong></li>
+          <li>학습 데이터 파이프라인 운영의 단일 진입점 확보 (라벨링 제외 사람 개입 0)</li>
+        </ul>
+      </div>
+      <span class="tag">SQS</span><span class="tag">Airflow</span><span class="tag">DataBricks</span>
+      <span class="tag gray">Jira: AI-697 · AI-796</span>
+    </div>
+
+    <!-- =============== PROJECT 6: RLSC 2.0 =============== -->
+    <div class="project">
+      <div class="project-head">
+        <div class="project-title">
+          RLSC 2.0 설계 · 정책 기반 재설계 (Tool-Calling Structuriser)
+        </div>
+        <div class="project-period">2026 Q1</div>
+      </div>
+      <div class="project-tags">
+        <span class="role-tag blue">Spec & Strategy Owner</span>
+        <span class="role-tag">LLM Product Strategy</span>
+      </div>
+
+      <h4>문제 정의 · 32만 건 데이터로 가설 수립</h4>
+      <ul>
+        <li>v1 한계: 역할(Role)·레이아웃(Layout)만으로는 부족한 정보가 있다는 가설</li>
+        <li><strong>329,649건 ambiguity 데이터</strong>(역할·레이아웃 혼동)를 직접 분석 — 프롬프트만 수정해서는 풀리지 않는 구조적 문제 식별</li>
+      </ul>
+
+      <h4>접근 — Policy Injection 아키텍처</h4>
+      <ul>
+        <li><strong>Single-Inference + Policy Injection</strong>: Layout · Role · Label · SmartBlock 등 정책을 Adapter 단위로 주입 → 한 번의 LLM 호출로 RLSC 추론</li>
+        <li><strong>도구 호출 기반 제어</strong>: `applyLayout`, `assignRole`, `assignLabel`, `checkRLSC`, `finish` 등 tool-calling으로 구조 생성·검수</li>
+        <li><strong>유지보수성</strong>: 정의 변경 시 해당 Policy만 교체 — <em>"실험과 운영의 트레이드오프를 PM이 풀어준 구조"</em></li>
+      </ul>
+
+      <div class="stakeholders">
+        <strong>킥오프 문서</strong>: "왜 v2가 필요한가" · "Policy-Driven 원칙" · "실험 설계"를 Confluence · Figma · Jira(MOR-1141)에 정리해 비개발자 포함 전체 이해관계자와 공유
+      </div>
+      <span class="tag">LLM Tool-Calling</span><span class="tag">Policy Adapter</span><span class="tag">데이터 기반 설계</span>
+    </div>
+
+    <!-- =============== PROJECT 7: 2.0 디자인 Json 배치 =============== -->
+    <div class="project">
+      <div class="project-head">
+        <div class="project-title">
+          2.0 디자인(Json) 배치 5종 운영 — 변환·검증·저장·합성 end-to-end
+        </div>
+        <div class="project-period">2025 H1</div>
+      </div>
+      <div class="project-tags">
+        <span class="role-tag blue">Operations PM</span>
+        <span class="role-tag">5종 배치 운영</span>
+      </div>
+
+      <h4>관리한 배치 5종</h4>
+      <ul>
+        <li><strong>① 템플릿 재저장 API 배치</strong> — 단건 요청 시 실행</li>
+        <li><strong>② 1.0(xml) → 2.0(json) 컨버터 에러 대응 배치</strong> — 템플릿/조합요소/svg 단위</li>
+        <li><strong>③ AI 모델 기반 이미지 비교·유사도·육안검사 시트 배치</strong> (AI-599)</li>
+        <li><strong>④ 육안검사 통과 json DB 저장 API 배치</strong></li>
+        <li><strong>⑤ 합성기 에러 대응 포맷별 배치</strong> (webp · pptx · pdf · mp4 · gif)</li>
+      </ul>
+
+      <h4>PM 관점</h4>
+      <ul>
+        <li><strong>End-to-end 파이프라인 책임</strong>: "변환 → 검증 → 저장 → 합성"의 전체 흐름이 안정적으로 도는지 책임</li>
+        <li><strong>에러 대응 정책</strong>: 컨버터/합성기 에러 시 어떤 단위로 재시도할지 정책 설계 (포맷별 분리)</li>
+        <li><strong>운영팀과의 연계</strong>: 육안검사 시트(스프레드시트) 형태로 운영팀에게 전달 → 통과한 데이터만 DB 저장</li>
+      </ul>
+      <span class="tag">배치 운영</span><span class="tag">에러 핸들링</span><span class="tag">2.0 컨버터</span>
+      <span class="tag gray">Jira: AI-599</span>
+    </div>
+
+    <!-- =============== PROJECT 8: 이미지 유사도 정합성 평가 =============== -->
+    <div class="project">
+      <div class="project-head">
+        <div class="project-title">
+          이미지 유사도 정합성 평가 파이프라인 (2024)
+        </div>
+        <div class="project-period">2024-11 ~ 2025-02</div>
+      </div>
+      <div class="project-tags">
+        <span class="role-tag blue">Pipeline PM</span>
+        <span class="role-tag">QA Workflow</span>
+      </div>
+
+      <h4>배경 · 목표</h4>
+      <ul>
+        <li><strong>비즈니스 목표</strong>: 1.0 → 2.0 변환 정합성을 <strong>주 1회 → 주 2회 18만 건</strong>까지 늘리고 유사도 평가 자동화</li>
+        <li><strong>제약</strong>: Puppeteer 리소스 과다 시 protocol timeout 발생 → 안정성과 처리량 동시 확보 필요</li>
+      </ul>
+
+      <h4>설계 · 의사결정</h4>
+      <ul>
+        <li><strong>배치 단위 결정</strong>: 500건마다 브라우저 재시작 → 리소스 안정성과 처리량 균형</li>
+        <li><strong>병렬 분리</strong>: Process1(합성 요청)과 Process2(SQS 결과 처리) 분리 · DynamoDB로 composite id ↔ 템플릿 매칭</li>
+        <li><strong>API 변경 대응</strong>: 합성 API 스펙 변경 시 JSON을 S3에 업로드하고 경로 리스트를 POST하도록 빠르게 전환 (AI-527)</li>
+        <li><strong>QA 인터페이스</strong>: 결과 CSV → Google 스프레드시트로 import → QA 팀이 바로 사용 가능</li>
+      </ul>
+
+      <div class="result-box">
+        <div class="result-label">★ IMPACT</div>
+        <ul>
+          <li>정합성 평가 자동화로 주간 18만 건 처리 기반 마련</li>
+          <li>QA가 별도 도구 없이 스프레드시트만으로 검수 가능 — <strong>사용자 중심 산출물 설계</strong></li>
+        </ul>
+      </div>
+      <span class="tag">Puppeteer</span><span class="tag">DinoV2</span><span class="tag">SQS · DynamoDB</span>
+      <span class="tag gray">Jira: AI-502 · AI-527 · AI-543 · AI-515</span>
+    </div>
+
+    <!-- =============== PROJECT 9: xml-image-csv-converter 1.0 =============== -->
+    <div class="project">
+      <div class="project-head">
+        <div class="project-title">
+          xml-image-csv-converter — 학습 데이터 생성기 (2024)
+        </div>
+        <div class="project-period">2024 Q4</div>
+      </div>
+      <div class="project-tags">
+        <span class="role-tag blue">Internal Tool PM</span>
+        <span class="role-tag">AI Researcher용 도구</span>
+      </div>
+
+      <h4>사용자 문제 · 솔루션</h4>
+      <ul>
+        <li><strong>사용자</strong>: AI Researcher · 유관 부서 (레이아웃 자동 생성 모델 연구팀)</li>
+        <li><strong>문제</strong>: 학습용 데이터(이미지 + CSV 메타데이터)를 매번 수동으로 만들기 어려움</li>
+        <li><strong>솔루션</strong>: XML → Image · CSV 변환 도구를 <strong>3가지 Process</strong>로 모듈화 — Save(저장), Visualize(미리보기), Element 추출</li>
+        <li><strong>CLI 설계</strong>: `xml-save-process` / `idx-save-process` / `xml-visualize-process` 등 <strong>사용자 친화적 명령어</strong>로 정리</li>
+      </ul>
+
+      <div class="stakeholders">
+        <strong>리드 평가</strong>: "XML2Image-Csv Converter 모듈화·고객(연구원) 편의성 구현 — <em>사용자 문제 해결에 집중하는 프로덕트 지향성</em>"
+      </div>
+      <span class="tag">XML 파싱</span><span class="tag">Puppeteer</span><span class="tag">CLI 모듈화</span><span class="tag">Docker · ECR</span>
+    </div>
+
+    <!-- =============== PROJECT 10: Canva 크롤링 =============== -->
+    <div class="project">
+      <div class="project-head">
+        <div class="project-title">
+          Canva 템플릿 크롤링 — "진행 중지"를 결정한 의사결정 사례
+        </div>
+        <div class="project-period">2025 H1</div>
+      </div>
+      <div class="project-tags">
+        <span class="role-tag blue">Risk Assessment</span>
+        <span class="role-tag">Stop / No-Go Decision</span>
+      </div>
+
+      <h4>배경</h4>
+      <ul>
+        <li>AI 모델(초거대 언어모델) 학습용 데이터로 미캔 데이터가 부족 → Canva 데이터를 수집·정제해 데이터 확보 필요성 검토</li>
+      </ul>
+
+      <h4>실행 · 의사결정</h4>
+      <ul>
+        <li><strong>기술적 가능성 검증</strong>: Puppeteer 기반 크롤러 PoC — iframe 내부 DOM `contentFrame()` 접근, CloudFlare 봇 탐지 대응(user-agent 랜덤화) 구현</li>
+        <li><strong>리스크 평가</strong>: 암호화된 HTML 태그 접근·클릭, 보안·법적 리스크(IP 차단, 해킹 시도로 판단될 가능성) 평가</li>
+        <li><strong>결정</strong>: "기술적으로 가능하지만 법적·윤리적 리스크가 크다" → <strong>진행 중지 판단</strong></li>
+        <li>VBA · win32com.client로 PPT 요소 이미지 추출 파이프라인도 함께 PoC했으나, 데이터 수집 자체를 중단함에 따라 보류</li>
+      </ul>
+
+      <div class="result-box" style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-color: #f59e0b;">
+        <div class="result-label" style="color: #92400e;">★ PM INSIGHT</div>
+        <ul style="color: #78350f;">
+          <li><strong>"할 수 있다"와 "해야 한다"는 다르다</strong>는 것을 명확히 구분</li>
+          <li>기술적 가능성 + 법적/윤리적 리스크를 함께 평가하는 PM 시야</li>
+          <li>실패한 프로젝트가 아닌, <strong>"제때 멈춘 의사결정"</strong></li>
+        </ul>
+      </div>
+      <span class="tag">Puppeteer</span><span class="tag">법적 리스크 평가</span><span class="tag">No-Go Decision</span>
+    </div>
+
+    <!-- =============== PROJECT 11: 표/차트 생성기 · Gradio =============== -->
+    <div class="project">
+      <div class="project-head">
+        <div class="project-title">
+          표·차트 생성기 / Gradio AI 데모 UI — 빠른 PoC
+        </div>
+        <div class="project-period">2025 H1</div>
+      </div>
+      <div class="project-tags">
+        <span class="role-tag blue">PoC Owner</span>
+        <span class="role-tag">AI Demo</span>
+      </div>
+
+      <h4>PoC 진행</h4>
+      <ul>
+        <li><strong>표·차트 생성기</strong> (AI-821) — 표/차트 자동·반자동 생성 도구 설계·구현</li>
+        <li><strong>Gradio UI</strong> (AI-741) — AI 모델 데모를 위한 인터페이스 개발 · 모델 엔드포인트 연동</li>
+        <li>PM 관점: "내부 이해관계자가 AI 모델 결과를 직접 만져볼 수 있는 도구"가 의사결정 속도를 높임</li>
+      </ul>
+      <span class="tag">Gradio</span><span class="tag">AI Demo</span>
+      <span class="tag gray">Jira: AI-821 · AI-741</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== 05 TIMELINE ===================== -->
+<section id="timeline" style="background:#f8fafc;">
+  <div class="container">
+    <div class="section-title">
+      <span class="num">05</span>
+      <h2>Career Timeline</h2>
+    </div>
+    <p class="section-desc">2024Q4 ~ 2026Q1까지의 주요 분기별 활동입니다.</p>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="when">2026 · Q1</div>
+        <div class="title">RLSC 2.0 설계 방향 · 정책 기반 재설계 킥오프</div>
+        <div class="desc">329,649건 ambiguity 분석 기반 Policy Injection 아키텍처 가설 수립. GPU 서버 계정 자동 생성 시스템 설계(n8n).</div>
+      </div>
+      <div class="timeline-item">
+        <div class="when">2025 · H2</div>
+        <div class="title">Agentic RLSC 14만+ 추출 launching · 비용 대시보드 구축</div>
+        <div class="desc">목표 초과 달성으로 143,790 pages 전체 추출 결정. xml-converter를 AWS Batch로 전환, OpenAI 비용 대시보드 자가 기획·구축.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="when">2025 · H1</div>
+        <div class="title">정합성 모델 88% 감소 · 학습 데이터 파이프라인</div>
+        <div class="desc">dreamsim 채택으로 육안검사 88% 감소. SQS→Airflow 중앙 집중화, 2.0 Json 배치 5종 운영, Canva 크롤링 PoC 후 진행 중지 결정.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="when">2024 · Q4</div>
+        <div class="title">학습 데이터 생성기 · DinoV2 정합성 PoC</div>
+        <div class="desc">xml-image-csv-converter를 AI Researcher용으로 모듈화 · 전달. DinoV2 기반 이미지 유사도 평가 PoC 구현.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 06 TOOLS & DOMAIN ===================== -->
+<section id="tools">
+  <div class="container">
+    <div class="section-title">
+      <span class="num">06</span>
+      <h2>Tools &amp; Domain Knowledge</h2>
+    </div>
+    <p class="section-desc">PM 업무에 직접 활용하는 협업 · 데이터 · 기술 툴입니다.</p>
+    <div class="stack-grid">
+      <div class="stack-card">
+        <h4>기획 · 협업 도구</h4>
+        <span class="tag">Confluence</span>
+        <span class="tag">Jira</span>
+        <span class="tag">Figma</span>
+        <span class="tag">Slack</span>
+        <span class="tag">Notion</span>
+        <span class="tag">Google Sheet</span>
+      </div>
+      <div class="stack-card">
+        <h4>데이터 · 분석</h4>
+        <span class="tag">DataBricks (SQL · Notebook)</span>
+        <span class="tag">SQL (PostgreSQL)</span>
+        <span class="tag">Langfuse</span>
+        <span class="tag">Mermaid (Diagram)</span>
+      </div>
+      <div class="stack-card">
+        <h4>AI · LLM 도메인</h4>
+        <span class="tag">OpenAI API</span>
+        <span class="tag">Prompt Engineering</span>
+        <span class="tag">Agent System</span>
+        <span class="tag">Tool-Calling</span>
+        <span class="tag">DinoV2 · dreamsim</span>
+      </div>
+      <div class="stack-card">
+        <h4>실행 · 빠른 PoC (직접 구현)</h4>
+        <span class="tag green">TypeScript · Next.js</span>
+        <span class="tag green">Node.js · Python</span>
+        <span class="tag green">Supabase (PostgreSQL)</span>
+        <span class="tag green">Gradio</span>
+      </div>
+      <div class="stack-card">
+        <h4>인프라 · 운영</h4>
+        <span class="tag gray">Docker · ECR</span>
+        <span class="tag gray">AWS Batch · SQS · S3</span>
+        <span class="tag gray">Airflow DAG</span>
+        <span class="tag gray">GitHub Actions (CI/CD)</span>
+      </div>
+      <div class="stack-card">
+        <h4>도메인</h4>
+        <span class="tag amber">디자인 온톨로지(RLSC)</span>
+        <span class="tag amber">템플릿 · 구성요소</span>
+        <span class="tag amber">14만+ 템플릿 스케일</span>
+        <span class="tag amber">AI 모델 운영</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 07 WHY PM ===================== -->
+<section id="why-pm" style="background:#f8fafc;">
+  <div class="container">
+    <div class="section-title">
+      <span class="num">07</span>
+      <h2>Why Product Manager?</h2>
+    </div>
+    <p class="section-desc">엔지니어로서 쌓은 경험이 PM 직무에서 어떻게 차별화된 강점이 되는지 정리했습니다.</p>
+
+    <div class="summary-grid">
+      <div class="summary-item">
+        <span class="icon">1</span>
+        <div>
+          <h4>기술 실현 가능성 판단</h4>
+          <p>엔지니어 출신이라 "이게 가능한가/얼마나 걸리는가"를 본능적으로 가늠 → 비현실적 요구사항을 거르고 <strong>현실적 로드맵</strong>을 만듭니다.</p>
+        </div>
+      </div>
+      <div class="summary-item">
+        <span class="icon">2</span>
+        <div>
+          <h4>AI Product 도메인 전문성</h4>
+          <p>LLM Agent · 프롬프트 설계 · 데이터 파이프라인 · 품질 지표를 직접 다뤄봐서 <strong>AI 제품 PM의 진입 장벽을 이미 통과</strong>한 상태입니다.</p>
+        </div>
+      </div>
+      <div class="summary-item">
+        <span class="icon">3</span>
+        <div>
+          <h4>운영 PM 감각</h4>
+          <p>14만+ 스케일, 배치 5종, 비용 거버넌스 등 <strong>실제 운영 중인 시스템</strong>을 책임져본 경험. PoC만이 아니라 <strong>launching 후 안정화까지</strong> 책임집니다.</p>
+        </div>
+      </div>
+      <div class="summary-item">
+        <span class="icon">4</span>
+        <div>
+          <h4>문서·커뮤니케이션</h4>
+          <p>Confluence 기반 기획 문서를 평소에 직접 써왔고, <strong>"왜 이걸 하는가"부터 명확하게 정렬</strong>합니다. 비개발자에게도 기술적 의사결정 근거를 잘 풀어냅니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="quote">
+      <strong>2025 하반기 성장 회고 (리드 코멘트):</strong> "소통 강점 유지. 기술적 사안에 타협 금지 — 80점에서 멈추지 말고 90점 또는 다량 처리.
+      AI Agent 기반 방향으로 역량 강화 권유 — 프론트/백 구분 의미 약화, <strong>현재 스쿼드 업무 방향이 미래에 유리</strong>."
+      <span class="who">— 즉, 이미 AI PM의 길로 자연스럽게 진입한 상태</span>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="container">
+    <p><strong>문지혜</strong> · Product Manager (지원) · AI Product Domain</p>
+    <p style="margin-top:6px; color:#cbd5e1;">📧 jhmun@miridih.com</p>
+    <div class="links">
+      <a href="https://github.com/miridih/ailabs-get-ai-data" target="_blank">GitHub (ailabs-get-ai-data)</a>
+      &middot;
+      <a href="https://miridih.atlassian.net/wiki/spaces/AIDMLOps" target="_blank">Confluence (AIDMLOps)</a>
+    </div>
+    <p style="margin-top:14px; color:#64748b; font-size:12px;">
+      © 2026 Munjihye Portfolio · 본 문서는 PM 직무 지원용으로 작성되었습니다.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

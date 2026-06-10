@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>문지혜 | Product Engineer Portfolio — AI Ontology & Internal System</title>
+<style>
+  /* ===== Reset & Base ===== */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Pretendard", "Noto Sans KR", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #1f2937;
+    background: #f8fafc;
+    line-height: 1.7;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== Layout ===== */
+  .container { max-width: 980px; margin: 0 auto; padding: 0 28px; }
+  .page { background: #fff; }
+  section { padding: 56px 0; border-bottom: 1px solid #e5e7eb; }
+  section:last-of-type { border-bottom: none; }
+
+  /* ===== Header ===== */
+  .header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #334155 100%);
+    color: #fff;
+    padding: 64px 0 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: "";
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 360px; height: 360px;
+    background: radial-gradient(circle, rgba(99,102,241,0.25) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: "";
+    position: absolute;
+    bottom: -120px; left: -80px;
+    width: 320px; height: 320px;
+    background: radial-gradient(circle, rgba(34,211,238,0.18) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header .container { position: relative; z-index: 2; }
+  .role-badge {
+    display: inline-block;
+    background: rgba(99,102,241,0.18);
+    border: 1px solid rgba(99,102,241,0.4);
+    color: #c7d2fe;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    margin-bottom: 20px;
+  }
+  .header h1 {
+    font-size: 44px;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    margin-bottom: 14px;
+  }
+  .header h1 .accent { color: #818cf8; }
+  .header .subtitle {
+    font-size: 18px;
+    color: #cbd5e1;
+    margin-bottom: 28px;
+    max-width: 760px;
+  }
+  .header .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 28px;
+    color: #94a3b8;
+    font-size: 14px;
+    margin-top: 8px;
+  }
+  .header .meta span strong { color: #e2e8f0; font-weight: 600; }
+
+  /* ===== Section title ===== */
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 32px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid #1f2937;
+  }
+  .section-title .num {
+    color: #6366f1;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .section-title h2 {
+    font-size: 26px;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.3px;
+  }
+  .section-desc {
+    color: #475569;
+    font-size: 14.5px;
+    margin: -16px 0 28px;
+  }
+
+  /* ===== Summary Bullets ===== */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px 24px;
+  }
+  .summary-item {
+    display: flex;
+    gap: 12px;
+    padding: 14px 16px;
+    background: #f1f5f9;
+    border-left: 3px solid #6366f1;
+    border-radius: 4px;
+  }
+  .summary-item .icon {
+    flex-shrink: 0;
+    width: 28px; height: 28px;
+    background: #6366f1;
+    color: #fff;
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .summary-item p { font-size: 14px; color: #1e293b; }
+  .summary-item strong { color: #0f172a; }
+
+  /* ===== KPI Cards ===== */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-top: 8px;
+  }
+  .kpi {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 20px 18px;
+    text-align: center;
+    transition: all 0.2s;
+  }
+  .kpi:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(15,23,42,0.08); }
+  .kpi .num {
+    font-size: 30px;
+    font-weight: 800;
+    color: #6366f1;
+    line-height: 1;
+    margin-bottom: 6px;
+    letter-spacing: -0.5px;
+  }
+  .kpi .label {
+    font-size: 12px;
+    color: #475569;
+    font-weight: 500;
+  }
+  .kpi .sub {
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 4px;
+  }
+
+  /* ===== Tech Stack ===== */
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .stack-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+  .stack-card h4 {
+    color: #0f172a;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .stack-card h4::before {
+    content: "";
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: #6366f1;
+    border-radius: 50%;
+  }
+  .tag {
+    display: inline-block;
+    background: #eef2ff;
+    color: #4338ca;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    margin: 3px 4px 3px 0;
+  }
+  .tag.gray { background: #f1f5f9; color: #475569; }
+
+  /* ===== Project Card ===== */
+  .project {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 28px 30px;
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .project.featured {
+    border-left: 4px solid #6366f1;
+    box-shadow: 0 2px 12px rgba(99,102,241,0.08);
+  }
+  .project-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 14px;
+    padding-bottom: 16px;
+    border-bottom: 1px dashed #cbd5e1;
+  }
+  .project-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.3px;
+  }
+  .project-title .featured-badge {
+    display: inline-block;
+    background: #6366f1;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .project-period {
+    color: #64748b;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .project-tags { margin-bottom: 16px; }
+  .role-tag {
+    display: inline-block;
+    background: #fef3c7;
+    color: #92400e;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 2px 4px 2px 0;
+  }
+  .project h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 18px 0 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .project h4::before {
+    content: "▸";
+    color: #6366f1;
+  }
+  .project p { font-size: 14px; color: #334155; margin-bottom: 8px; }
+  .project ul { margin-left: 4px; margin-top: 4px; }
+  .project ul li {
+    list-style: none;
+    padding: 4px 0 4px 20px;
+    font-size: 14px;
+    color: #334155;
+    position: relative;
+  }
+  .project ul li::before {
+    content: "•";
+    position: absolute;
+    left: 6px;
+    color: #6366f1;
+    font-weight: 700;
+  }
+  .project ul li strong { color: #0f172a; }
+
+  /* ===== Result Box ===== */
+  .result-box {
+    background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+    border-left: 3px solid #6366f1;
+    padding: 14px 18px;
+    border-radius: 6px;
+    margin: 14px 0;
+  }
+  .result-box .result-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #4338ca;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .result-box ul li { padding: 2px 0 2px 20px !important; }
+
+  /* ===== Compare Table ===== */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 13.5px;
+  }
+  .compare-table th,
+  .compare-table td {
+    border: 1px solid #e2e8f0;
+    padding: 10px 14px;
+    text-align: left;
+  }
+  .compare-table th {
+    background: #f1f5f9;
+    color: #0f172a;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .compare-table tbody tr:nth-child(even) { background: #fafbfc; }
+  .compare-table .as-is { color: #be123c; font-weight: 600; }
+  .compare-table .to-be { color: #047857; font-weight: 700; }
+
+  /* ===== Architecture / Code-style box ===== */
+  .arch-box {
+    background: #0f172a;
+    color: #e2e8f0;
+    padding: 18px 22px;
+    border-radius: 8px;
+    font-family: "JetBrains Mono", Consolas, Monaco, monospace;
+    font-size: 12.5px;
+    line-height: 1.8;
+    margin: 12px 0;
+    overflow-x: auto;
+    white-space: pre;
+  }
+  .arch-box .comment { color: #64748b; }
+  .arch-box .key { color: #818cf8; }
+  .arch-box .val { color: #34d399; }
+  .arch-box .arrow { color: #fbbf24; }
+
+  /* ===== Timeline ===== */
+  .timeline {
+    position: relative;
+    padding-left: 32px;
+  }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 8px; top: 6px; bottom: 6px;
+    width: 2px;
+    background: linear-gradient(to bottom, #6366f1, #cbd5e1);
+  }
+  .timeline-item {
+    position: relative;
+    padding-bottom: 22px;
+  }
+  .timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -29px; top: 6px;
+    width: 14px; height: 14px;
+    background: #fff;
+    border: 3px solid #6366f1;
+    border-radius: 50%;
+  }
+  .timeline-item .when {
+    font-size: 12px;
+    font-weight: 700;
+    color: #6366f1;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .timeline-item .title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 4px;
+  }
+  .timeline-item .desc { font-size: 13.5px; color: #475569; }
+
+  /* ===== Footer / Refs ===== */
+  .ref-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px 18px;
+    font-size: 13px;
+  }
+  .ref-list a {
+    color: #4338ca;
+    text-decoration: none;
+    border-bottom: 1px dotted #a5b4fc;
+  }
+  .ref-list a:hover { color: #1e1b4b; border-bottom-style: solid; }
+
+  .footer {
+    background: #0f172a;
+    color: #94a3b8;
+    text-align: center;
+    padding: 28px 0;
+    font-size: 13px;
+  }
+  .footer strong { color: #e2e8f0; }
+
+  /* ===== Print ===== */
+  @media print {
+    body { background: #fff; font-size: 12px; }
+    .header { background: #0f172a !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    section { padding: 28px 0; page-break-inside: avoid; }
+    .project { page-break-inside: avoid; box-shadow: none; }
+    .arch-box { background: #0f172a !important; color: #e2e8f0 !important; -webkit-print-color-adjust: exact; }
+    .kpi:hover { transform: none; }
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 768px) {
+    .header h1 { font-size: 32px; }
+    .summary-grid, .stack-grid { grid-template-columns: 1fr; }
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .ref-list { grid-template-columns: 1fr; }
+    .project { padding: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header class="header">
+  <div class="container">
+    <span class="role-badge">PRODUCT ENGINEER · AI ONTOLOGY · PM-MINDED</span>
+    <h1>제품을 <span class="accent">데이터·AI 시스템</span>으로<br/>완성하는 Product Engineer</h1>
+    <p class="subtitle">
+      디자인 온톨로지(RLSC) Agent System 개발, 14만+ 템플릿 데이터 품질 시스템 구축, AI/LLM 연동·내부 도구·데이터 파이프라인 자동화를 통해
+      "왜(Why)에서 출발해 어떻게(How)까지 주도하는" 풀스택 Product Engineer입니다.
+    </p>
+    <div class="meta">
+      <span><strong>Role</strong> · Product Engineer (AI Ontology & Internal System / PoC → MVP)</span>
+      <span><strong>Stack</strong> · TypeScript · Next.js · Node.js · Python · PostgreSQL · Docker · Airflow · AWS</span>
+      <span><strong>Domain</strong> · AI Ontology · LLM Agent · Data Pipeline · Internal Tooling</span>
+    </div>
+  </div>
+</header>
+
+<div class="page">
+
+<!-- ===================== ABOUT / SUMMARY ===================== -->
+<section id="about">
+  <div class="container">
+    <div class="section-title">
+      <span class="num">01</span>
+      <h2>About Me</h2>
+    </div>
+    <p class="section-desc">
+      Product Engineer로서 단일 기능 구현이 아닌 <strong>"제품 목적 → 사용자 문제 → 기술 솔루션"</strong> 흐름을 주도합니다.
+      AI/LLM·데이터 파이프라인·풀스택 백오피스를 한 사이클로 다루며, 리드 평가 인용 — <em>"PM 하셔도 잘하실 것 같다"</em>.
+    </p>
+    <div class="summary-grid">
+      <div class="summary-item">
+        <span class="icon">P</span>
+        <p><strong>Product 지향성</strong> — 기능보다 목적 중심, Why에서 출발해 사용자 문제를 정의·해결. (2025 하반기 리드 피드백)</p>
+      </div>
+      <div class="summary-item">
+        <span class="icon">A</span>
+        <p><strong>Agentic AI 시스템</strong> — Generator·Evaluator·피드백 루프 LLM 멀티 에이전트 모듈을 직접 설계·구현.</p>
+      </div>
+      <div class="summary-item">
+        <span class="icon">D</span>
+        <p><strong>데이터 기반 의사결정</strong> — 50가지 PoC 버전·TP/TN/FP 지표로 모델 선택, 육안 검사 88% 감소.</p>
+      </div>
+      <div class="summary-item">
+        <span class="icon">O</span>
+        <p><strong>Ownership / 자동화</strong> — 기술 부채를 스스로 정의·해결, EC2 수동 운영 → AWS Batch·Airflow로 전환.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== KPI HIGHLIGHTS ===================== -->
+<section id="kpi" style="background:#f8fafc;">
+  <div class="container">
+    <div class="section-title">
+      <span class="num">02</span>
+      <h2>Key Impact (정량 지표)</h2>
+    </div>
+    <p class="section-desc">2024–2025년 주요 프로젝트의 핵심 임팩트를 수치로 요약했습니다.</p>
+    <div class="kpi-grid">
+      <div class="kpi">
+        <div class="num">88%↓</div>
+        <div class="label">육안 검사 대상 감소</div>
+        <div class="sub">dinoV2 → dreamsim 정합성 모델 전환</div>
+      </div>
+      <div class="kpi">
+        <div class="num">143,790</div>
+        <div class="label">Pages 대량 추출</div>
+        <div class="sub">Agentic RLSC 전체 템플릿 적용</div>
+      </div>
+      <div class="kpi">
+        <div class="num">90% / 97%</div>
+        <div class="label">Page / Component 정답률</div>
+        <div class="sub">목표(80%/95%) 全 구간 초과 달성</div>
+      </div>
+      <div class="kpi">
+        <div class="num">50</div>
+        <div class="label">PoC 실험 버전</div>
+        <div class="sub">grid 1~25 × 2 모델, TP/TN/FP 분석</div>
+      </div>
+    </div>
+    <div class="kpi-grid" style="margin-top:14px;">
+      <div class="kpi">
+        <div class="num">15:44 → 13:45</div>
+        <div class="label">Docker 빌드 시간</div>
+        <div class="sub">캐시 적용 시 약 80% 단축</div>
+      </div>
+      <div class="kpi">
+        <div class="num">EC2 6대 → Auto</div>
+        <div class="label">컴퓨팅 자동 확장</div>
+        <div class="sub">수동 EC2 → AWS Batch 전환</div>
+      </div>
+      <div class="kpi">
+        <div class="num">SQS → Airflow</div>
+        <div class="label">파이프라인 중앙 집중화</div>
+        <div class="sub">학습 데이터 적재 자동화</div>
+      </div>
+      <div class="kpi">
+        <div class="num">Project · Key · Model</div>
+        <div class="label">OpenAI 비용 가시화</div>
+        <div class="sub">전사 AI 비용 대시보드 구축</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TECH STACK ===================== -->
+<section id="stack">
+  <div class="container">
+    <div class="section-title">
+      <span class="num">03</span>
+      <h2>Tech Stack</h2>
+    </div>
+    <div class="stack-grid">
+      <div class="stack-card">
+        <h4>Frontend / Fullstack</h4>
+        <span class="tag">TypeScript</span>
+        <span class="tag">React</span>
+        <span class="tag">Next.js</span>
+        <span class="tag">Gradio</span>
+        <span class="tag">REST API</span>
+      </div>
+      <div class="stack-card">
+        <h4>Backend / DB</h4>
+        <span class="tag">Node.js</span>
+        <span class="tag">Python</span>
+        <span class="tag">Supabase (PostgreSQL)</span>
+        <span class="tag">pg-boss</span>
+        <span class="tag">DynamoDB</span>
+      </div>
+      <div class="stack-card">
+        <h4>AI / LLM</h4>
+        <span class="tag">OpenAI API</span>
+        <span class="tag">Langfuse</span>
+        <span class="tag">Prompt Engineering</span>
+        <span class="tag">Agentic Workflow</span>
+        <span class="tag">DinoV2 / DreamSim</span>
+      </div>
+      <div class="stack-card">
+        <h4>Data / Pipeline</h4>
+        <span class="tag">Apache Airflow</span>
+        <span class="tag">AWS SQS</span>
+        <span class="tag">Databricks</span>
+        <span class="tag">CSV / XML / JSON</span>
+        <span class="tag">Puppeteer</span>
+      </div>
+      <div class="stack-card">
+        <h4>DevOps / Infra</h4>
+        <span class="tag">Docker</span>
+        <span class="tag">AWS Batch</span>
+        <span class="tag">AWS ECR / S3 / EC2</span>
+        <span class="tag">GitHub Actions</span>
+        <span class="tag">OIDC / IAM</span>
+      </div>
+      <div class="stack-card">
+        <h4>Crawling / Automation</h4>
+        <span class="tag">Puppeteer</span>
+        <span class="tag">iframe DOM</span>
+        <span class="tag">User-Agent 우회</span>
+        <span class="tag">VBA / win32com</span>
+        <span class="tag">CLI Tooling</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FEATURED PROJECT 1: AGENTIC RLSC ===================== -->
+<section id="project-1" style="background:#f8fafc;">
+  <div class="container">
+    <div class="section-title">
+      <span class="num">04</span>
+      <h2>Featured Projects</h2>
+    </div>
+    <p class="section-desc">2025년 핵심 성과 두 건을 먼저 다룹니다. 둘 다 리드로부터 "기대 초과"·"주도성" 평가를 받았습니다.</p>
+
+    <!-- PROJECT: Agentic RLSC -->
+    <div class="project featured">
+      <div class="project-head">
+        <div>
+          <div class="project-title">
+            Agentic RLSC 추출 모듈 — LLM 피드백 루프 기반 디자인 온톨로지 추출
+            <span class="featured-badge">CORE</span>
+          </div>
+          <div class="project-tags" style="margin-top:6px;">
+            <span class="role-tag">Agent System 설계·구현</span>
+            <span class="role-tag">RLSC Generator (가장 앞단·가장 큰 모듈)</span>
+            <span class="role-tag">LLM 프롬프트·피드백 설계</span>
+          </div>
+        </div>
+        <span class="project-period">2025 H2 · MOR-595/622/577</span>
+      </div>
+
+      <h4>문제 정의</h4>
+      <p>
+        디자인 템플릿(약 14만 페이지)에서 <strong>RLSC(Region·Layout·Structure·Component) 디자인 온톨로지</strong>를 LLM으로 추출해야 했습니다.
+        기존 단일 추론은 환각·구조 오류가 잦아, <strong>Generator의 결과를 Evaluator가 평가하고 그 피드백을 다시 LLM에게 전달해 재추론</strong>시키는
+        Agentic 구조가 필요했습니다.
+      </p>
+
+      <h4>나의 역할 (RLSC Generator + 파이프라인 오너)</h4>
+      <ul>
+        <li><strong>RLSC Generator 구현</strong> — 모듈 가장 앞단에서 LLM 호출·입출력 형식 설계. 주요 모듈 중 가장 큰 모듈을 담당.</li>
+        <li><strong>프롬프트·피드백 설계</strong> — RLSC 생성용 + Evaluator 평가 결과를 반영하는 피드백 프롬프트 설계·반복 개선.</li>
+        <li><strong>Evaluator 연동</strong> — 평가 결과를 받아 피드백 프롬프트를 동적으로 구성, LLM에 재추론 요청.</li>
+        <li><strong>Langfuse 관측·비용 트래킹</strong> — 모든 LLM 호출에 trace_id를 부여해 비용·실패 원인을 추적 가능하게 함.</li>
+        <li><strong>전체 추출 파이프라인</strong> — 3단계(JSON → Agentic RLSC 배치) + 4단계(Design Object 추출) 파이프라인을 pg-boss 큐·워커·REST API·백오피스 UI(Next.js)로 구현.</li>
+      </ul>
+
+      <h4>아키텍처 (3단계 배치 흐름)</h4>
+      <div class="arch-box">[<span class="key">Frontend</span>] AgenticRLSCDialog
+   <span class="arrow">→</span> POST /api/agentic-total-batch-conversion/agentic-rlsc/start
+[<span class="key">API</span>] layouts 조건 조회 (json_sheet_data IS NOT NULL, agentic_jsonb IS NULL)
+   <span class="arrow">→</span> batchId(UUID) 생성, layoutId × jobCountPerLayout payload
+   <span class="arrow">→</span> <span class="val">pg-boss</span> 큐에 비동기 send() / job_history upsert(status=pending)
+[<span class="key">Worker</span>] rlsc-worker.ts (pg-boss.work)
+   <span class="arrow">→</span> AgenticRLSCStructuriserManager.process()
+        ├─ Generator (LLM 호출, 1차 추론)
+        ├─ Evaluator (품질 평가)
+        └─ Feedback Loop (재추론, max iteration까지)
+   <span class="arrow">→</span> 성공: layouts.structured_content_agentic_jsonb 저장
+                       rlsc_results insert (type='agentic', trace_id, batch_id)
+   <span class="arrow">→</span> 실패: total_status='failed_agentic_rlsc', pg-boss 재시도
+   <span class="arrow">→</span> 타임아웃: reapTimeOutJobs 워커가 별도로 정리
+[<span class="key">DB</span>] layouts · rlsc_results · job_history · design_objects (Supabase/PostgreSQL)</div>
+
+      <h4>정량 결과</h4>
+      <div class="result-box">
+        <div class="result-label">RESULT — 목표 대비 全 구간 초과 달성</div>
+        <table class="compare-table">
+          <thead><tr><th>구간</th><th>샘플</th><th>Page 정답률 (목표 80%)</th><th>Component 정답률 (목표 95%)</th></tr></thead>
+          <tbody>
+            <tr><td>1차</td><td>98개</td><td class="to-be">89.80%</td><td class="to-be">97.75%</td></tr>
+            <tr><td>2차</td><td>추가 20개</td><td class="to-be">90.00%</td><td class="to-be">97.89%</td></tr>
+            <tr><td>3차</td><td>랜덤 100개</td><td class="to-be">90%</td><td class="to-be">97%</td></tr>
+            <tr><td colspan="2"><strong>최종 적용</strong></td><td colspan="2"><strong>약 143,790 pages 전체 추출 진행</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>리드 평가</h4>
+      <p>
+        <em>"기대 초과. 스쿼드 목표 수치 근접·초과, 납기 지연 없음. Agentic RLSC 추출기 주요 모듈 중 가장 큰 모듈 담당.
+        이해하기 어려운 프로젝트·난해한 용어 환경에서 목표 달성으로 높이 평가."</em>
+      </p>
+
+      <h4>사용 기술</h4>
+      <p>
+        <span class="tag">TypeScript</span>
+        <span class="tag">Next.js</span>
+        <span class="tag">Supabase (PostgreSQL)</span>
+        <span class="tag">pg-boss</span>
+        <span class="tag">OpenAI API</span>
+        <span class="tag">Langfuse</span>
+        <span class="tag">REST API</span>
+        <span class="tag">Agent Workflow Design</span>
+      </p>
+    </div>
+
+    <!-- PROJECT: xml-image-csv-converter 자동화 -->
+    <div class="project featured">
+      <div class="project-head">
+        <div>
+          <div class="project-title">
+            xml-image-csv-converter 자동화 — 수동 EC2 → AWS Batch + Airflow
+            <span class="featured-badge">DEVOPS</span>
+          </div>
+          <div class="project-tags" style="margin-top:6px;">
+            <span class="role-tag">기술 부채 주도적 정리</span>
+            <span class="role-tag">CI/CD 설계</span>
+            <span class="role-tag">Dockerfile 최적화</span>
+            <span class="role-tag">DAG 설계</span>
+          </div>
+        </div>
+        <span class="project-period">2025 H2 · DevOps Migration</span>
+      </div>
+
+      <h4>문제 정의</h4>
+      <p>
+        대량 XML→Image·CSV 변환 시 <strong>r7i.xlarge EC2를 최대 6대 직접 띄워 병렬 처리</strong>했고,
+        스케줄링·재시도·리소스 회수가 모두 수동이었습니다. 운영 부담이 컸고 규모가 커질수록 한계가 분명해, 컨테이너 기반 자동 확장 구조로 전환이 필요했습니다.
+      </p>
+
+      <h4>AS-IS / TO-BE</h4>
+      <table class="compare-table">
+        <thead><tr><th>구분</th><th class="as-is">AS-IS</th><th class="to-be">TO-BE</th></tr></thead>
+        <tbody>
+          <tr><td>실행 환경</td><td>EC2 r7i.xlarge × 6대 수동 기동</td><td>AWS Batch — 컨테이너 Job, 자동 확장·자동 종료</td></tr>
+          <tr><td>오케스트레이션</td><td>없음 (수동 SSH)</td><td>Airflow DAG (시점·재시도·순차/병렬 제어)</td></tr>
+          <tr><td>이미지 빌드</td><td>로컬 수동 build → tag → push 3단계</td><td>GitHub Actions: develop push → ECR 자동 업로드</td></tr>
+          <tr><td>빌드 시간</td><td>15분 44초</td><td>13분 45초 (캐시 적용 시 약 80% 단축)</td></tr>
+          <tr><td>운영 부담</td><td>수동 개입·임시 스크립트 운영</td><td>일배치 안정 자동화, 인프라 부담 제거</td></tr>
+        </tbody>
+      </table>
+
+      <h4>주요 의사결정 — EKS → EC2 → AWS Batch</h4>
+      <p>
+        원래 Airflow + EKS(KubernetesPodOperator) 구조를 목표로 했으나,
+        <strong>EKS 연동·IAM·네트워크 구축 일정이 부담스럽다고 판단</strong>해 1차로 Airflow + EC2 방식으로 전환했고,
+        2차에 EC2 직접 운영을 제거하고 <strong>AWS Batch</strong>로 최종 이관하여 자동 확장·자동 해제를 달성했습니다.
+        — 이상적 설계보다 <em>"현실적으로 빠르게 가치를 내는 경로"</em>를 선택한 사례.
+      </p>
+
+      <h4>나의 역할</h4>
+      <ul>
+        <li><strong>아키텍처 변경 설계·문서화</strong> — EKS→EC2 전환 사유, EC2+Docker+Airflow 구조 정립.</li>
+        <li><strong>CI/CD 워크플로우 작성</strong> — GitHub Actions(OIDC IAM Role <code>de-xml-image-csv-converter-github</code>, <code>linux/arm64</code>, buildx 캐시).</li>
+        <li><strong>Dockerfile 최적화</strong> — 레이어 순서(ENV→시스템→Node→requirements.txt→소스), <code>--cache-from/--cache-to type=gha</code> 적용.</li>
+        <li><strong>Airflow DAG 설계</strong> — XML→image·csv 작업 단위 정의, 실패 재시도·순차/병렬 제어.</li>
+        <li><strong>AWS Batch 도입</strong> — EC2 직접 기동 제거, 컨테이너 Job 단위 실행, 종료 후 리소스 자동 해제.</li>
+      </ul>
+
+      <div class="result-box">
+        <div class="result-label">LEAD FEEDBACK</div>
+        <p style="margin:0; font-size:13.5px;"><em>"기술 부채를 주도적으로 정리 — 문제를 직접 정의하고 해결하는 주도성 발휘"</em></p>
+      </div>
+
+      <h4>사용 기술</h4>
+      <p>
+        <span class="tag">Docker</span>
+        <span class="tag">AWS ECR</span>
+        <span class="tag">AWS Batch</span>
+        <span class="tag">Airflow</span>
+        <span class="tag">GitHub Actions</span>
+        <span class="tag">OIDC / IAM</span>
+        <span class="tag">buildx (cache-from/to)</span>
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== PROJECT 3: 정합성 모델 (dreamsim) ===================== -->
+<section id="project-3">
+  <div class="container">
+    <div class="section-title">
+      <span class="num">05</span>
+      <h2>Data Quality System Projects</h2>
+    </div>
+    <p class="section-desc">14만+ 템플릿의 데이터 품질을 측정·개선한 두 가지 프로젝트.</p>
+
+    <div class="project">
+      <div class="project-head">
+        <div>
+          <div class="project-title">템플릿 정합성 배치 모델 개선 (dinoV2 → dreamsim)</div>
+          <div class="project-tags" style="margin-top:6px;">
+            <span class="role-tag">PoC 50버전 실험 설계</span>
+            <span class="role-tag">데이터 기반 의사결정</span>
+          </div>
+        </div>
+        <span class="project-period">2025 H1 · AI-785</span>
+      </div>
+
+      <h4>문제 정의</h4>
+      <p>
+        디자인 1.0 → 2.0 변환 결과의 <strong>정합성을 자동 평가</strong>해 "유사" 판정 템플릿은 육안 검사에서 제외해야 하는데,
+        기존 dinoV2 모델은 "유사" 판정이 적어 6만 건 가까이 육안 검사가 필요했습니다.
+      </p>
+
+      <h4>접근 — 50가지 버전 PoC</h4>
+      <ul>
+        <li><strong>grid size 1~25 × 모델 2종(dinoV2 / dreamsim) = 50가지 버전</strong> 유사도 결과 추출·비교.</li>
+        <li><strong>TP·TN·FP 등 정량 지표</strong>로 "어떤 모델이 더 좋아 보인다"가 아닌 데이터 기반 결론 도출.</li>
+        <li>리드와 공유 → <strong>객관적 기준으로 dreamsim 채택·배치 반영 결정.</strong></li>
+      </ul>
+
+      <h4>정량 결과</h4>
+      <div class="result-box">
+        <div class="result-label">RESULT — 육안 검사 88% 감소</div>
+        <table class="compare-table">
+          <thead><tr><th>구분</th><th class="as-is">AS-IS (dinoV2)</th><th class="to-be">TO-BE (dreamsim)</th></tr></thead>
+          <tbody>
+            <tr><td>전체 템플릿 수</td><td>69,979개</td><td>69,494개</td></tr>
+            <tr><td>"유사하다" 판단</td><td>10,940개</td><td><strong>62,269개 (약 5.7배)</strong></td></tr>
+            <tr><td>육안 검사 대상</td><td>59,039개</td><td><strong>7,225개</strong></td></tr>
+            <tr><td><strong>감소율</strong></td><td>—</td><td><strong>약 88% 감소</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        <span class="tag">DinoV2</span>
+        <span class="tag">DreamSim</span>
+        <span class="tag">Image Similarity</span>
+        <span class="tag">TP/TN/FP Analysis</span>
+        <span class="tag">PoC 실험 설계</span>
+      </p>
+    </div>
+
+    <!-- PROJECT: 이미지 유사도 정합성 평가 (2024) -->
+    <div class="project">
+      <div class="project-head">
+        <div>
+          <div class="project-title">이미지 유사도 정합성 평가 파이프라인 (DinoV2 기반 End-to-End)</div>
+          <div class="project-tags" style="margin-top:6px;">
+            <span class="role-tag">End-to-End 파이프라인 설계</span>
+            <span class="role-tag">배치·병렬처리</span>
+            <span class="role-tag">DynamoDB 매칭</span>
+          </div>
+        </div>
+        <span class="project-period">2024-11 ~ 2025-02 · AI-502/527/543</span>
+      </div>
+
+      <h4>문제 정의</h4>
+      <p>
+        1.0 템플릿 데이터를 2.0으로 변환·합성한 뒤, <strong>기존 썸네일과 2.0 썸네일을 DinoV2로 유사도 비교</strong>하고
+        결과를 CSV·스프레드시트로 정리하는 end-to-end 프로세스가 필요했습니다.
+        목표: 주 1회 → 주 2회, 약 18만 건 처리.
+      </p>
+
+      <h4>아키텍처 (Process 1·2 분리 + DynamoDB 매칭)</h4>
+      <div class="arch-box">[<span class="key">Process 1</span>] XML → JSON 변환 + 합성 요청
+   input.csv (template_idx, sheet_path, thumb_path)
+   <span class="arrow">→</span> S3 XML 로드 → <span class="val">Puppeteer</span> XML→JSON → JSON S3 업로드
+   <span class="arrow">→</span> 합성 API POST → CompositeIdList 수신
+   <span class="arrow">→</span> DynamoDB: composite_id ↔ template 매칭 저장
+
+[<span class="key">Process 2</span>] SQS 결과 수신 + Output 적재
+   SQS 메시지 (composite_id, 2.0 썸네일)
+   <span class="arrow">→</span> DynamoDB 조회·삭제 → 최종 Output S3 업로드
+
+[<span class="key">Eval</span>] DinoV2 유사도 평가
+   기존/2.0 썸네일 다운로드 → DinoV2 유사도 계산
+   <span class="arrow">→</span> 결과 CSV → Google 스프레드시트 (QA 검증)
+
+<span class="comment"># 배치 단위: 500건마다 Puppeteer 재시작 (메모리 누수 방지)</span></div>
+
+      <h4>나의 역할</h4>
+      <ul>
+        <li><strong>End-to-end 프로세스 설계·구현</strong> — XML→JSON 변환, 합성 API 연동, 유사도 비교.</li>
+        <li><strong>합성 API 변경 대응(AI-527)</strong> — JSON을 ailabs S3에 업로드하고 경로 리스트로 POST하는 흐름으로 재설계.</li>
+        <li><strong>배치·병렬처리(AI-543)</strong> — 500건 단위 배치, Process 1/2 병렬 분리, DynamoDB 매칭으로 데이터 일관성 확보.</li>
+        <li><strong>DinoV2 inference 코드</strong> 작성·정합성 평가 프로젝트 코드 구현.</li>
+      </ul>
+
+      <p>
+        <span class="tag">Node.js</span>
+        <span class="tag">Puppeteer</span>
+        <span class="tag">DinoV2</span>
+        <span class="tag">AWS S3 / SQS / DynamoDB</span>
+        <span class="tag">Google Sheets API</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROJECT: DATA PIPELINE ===================== -->
+<section id="project-pipeline" style="background:#f8fafc;">
+  <div class="container">
+    <div class="section-title">
+      <span class="num">06</span>
+      <h2>Data Pipeline & Crawling Projects</h2>
+    </div>
+
+    <!-- AI 학습 데이터 적재 파이프라인 -->
+    <div class="project">
+      <div class="project-head">
+        <div>
+          <div class="project-title">AI 학습 데이터 적재 파이프라인 — SQS → Airflow 중앙 집중화</div>
+          <div class="project-tags" style="margin-top:6px;">
+            <span class="role-tag">SQS 자동화</span>
+            <span class="role-tag">Airflow DAG 중앙화</span>
+            <span class="role-tag">데이터 검수 워크플로우 자동화</span>
+          </div>
+        </div>
+        <span class="project-period">2025 H1 · AI-697 / AI-796</span>
+      </div>
+
+      <h4>AS-IS / 중간 / TO-BE 진화</h4>
+      <table class="compare-table">
+        <thead><tr><th>단계</th><th>방식</th></tr></thead>
+        <tbody>
+          <tr><td class="as-is">AS-IS</td><td>리서처 → MA 스쿼드 온콜 → 데이터브릭스 링크 → CSV·GPU 수동 업로드 → 스크립트 실행</td></tr>
+          <tr><td>중간</td><td><strong>SQS</strong> 활용 신규 미캔 데이터 전처리 자동화 — 매주 월요일 10시 실행, 추출 이미지 GPU 자동 적재 (AI-697)</td></tr>
+          <tr><td class="to-be">TO-BE</td><td><strong>Airflow</strong> DAG로 "데이터 적재 요청 → 이미지 처리 → GPU 연산"까지 워크플로우 중앙 집중화 (AI-796)</td></tr>
+        </tbody>
+      </table>
+
+      <h4>저퀄리티 분류 모델 데이터셋 정의</h4>
+      <ul>
+        <li><strong>디자인허브 측면</strong> — 승인 + 거부 + "승인 후 신고로 거부" 케이스 라벨링 기준 정리, 데이터브릭스 쿼리 작성.</li>
+        <li><strong>검탐색 측면</strong> — 고품질(유저픽 70만 건) / 저품질(노출 대비 채택률 50만 건) 정의, '검색' 한정 조건.</li>
+      </ul>
+
+      <p>
+        <span class="tag">AWS SQS</span>
+        <span class="tag">Apache Airflow</span>
+        <span class="tag">Databricks</span>
+        <span class="tag">GPU Server</span>
+        <span class="tag">Workflow Automation</span>
+      </p>
+    </div>
+
+    <!-- Canva Crawling -->
+    <div class="project">
+      <div class="project-head">
+        <div>
+          <div class="project-title">Canva 템플릿 웹 크롤러 + 요소 이미지 추출 파이프라인</div>
+          <div class="project-tags" style="margin-top:6px;">
+            <span class="role-tag">Puppeteer 크롤러</span>
+            <span class="role-tag">iframe DOM 접근</span>
+            <span class="role-tag">CloudFlare 봇 우회</span>
+            <span class="role-tag">리스크 판단·중지 결정</span>
+          </div>
+        </div>
+        <span class="project-period">2025 H1 · External Data 수집</span>
+      </div>
+
+      <h4>문제·접근</h4>
+      <p>
+        AI 모델 학습용 미캔 데이터 부족 → 외부(Canva) 템플릿을 수집해 데이터셋 확장이 필요했습니다.
+        Puppeteer 기반으로 자동 다운로드 흐름을 구현하면서 두 가지 기술적 난점을 직접 해결했습니다.
+      </p>
+      <ul>
+        <li><strong>iframe DOM 접근</strong> — Canva 페이지가 별도 iframe으로 분리되어 있어 <code>contentFrame()</code>으로 DOM 트리를 별도 접근하도록 구현.</li>
+        <li><strong>봇 탐지 우회</strong> — CloudFlare robots.txt 대응을 위해 <strong>user-agent 랜덤화</strong> 로직 추가.</li>
+        <li><strong>요소 이미지 추출</strong> — 수집한 PPT에서 VBA 매크로 + Python <code>win32com.client</code>으로 요소별 이미지 자동 추출.</li>
+      </ul>
+
+      <h4>비판적 의사결정 — 진행 중지</h4>
+      <div class="result-box">
+        <p style="margin:0; font-size:13.5px;">
+          암호화된 HTML 태그·보안·법적 리스크를 평가해 <strong>"기술적 가능성과 리스크를 비판적으로 판단해 진행 중지"</strong>를 결정.
+          가능성을 입증하면서도 컴플라이언스를 우선한 사례.
+        </p>
+      </div>
+
+      <p>
+        <span class="tag">Puppeteer</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">iframe DOM</span>
+        <span class="tag">User-Agent Rotation</span>
+        <span class="tag">VBA Macro</span>
+        <span class="tag">win32com.client</span>
+      </p>
+    </div>
+
+    <!-- xml-image-csv-converter (2024 origin) -->
+    <div class="project">
+      <div class="project-head">
+        <div>
+          <div class="project-title">xml-image-csv-converter — 레이아웃 모델 학습 데이터 생성기 (2024 origin)</div>
+          <div class="project-tags" style="margin-top:6px;">
+            <span class="role-tag">파이프라인 설계</span>
+            <span class="role-tag">CLI 모듈화</span>
+            <span class="role-tag">사용자 문제 해결 중심</span>
+          </div>
+        </div>
+        <span class="project-period">2024 Q4~ 지속 발전</span>
+      </div>
+
+      <h4>개요</h4>
+      <p>
+        AI Researcher가 <strong>레이아웃 자동 생성 모델 연구</strong>에 사용할 학습 데이터를 직접 만들 수 있도록,
+        XML(<code>thumbnail.xml</code>·<code>skin.xml</code>·<code>elements.xml</code>) 또는 template_idx CSV를 입력으로 받아
+        Image(thumbnail/skin/element)와 CSV(템플릿 메타데이터)를 생성하는 모듈을 설계·구현했습니다.
+      </p>
+
+      <h4>3가지 Process · CLI 모듈화</h4>
+      <table class="compare-table">
+        <thead><tr><th>Process</th><th>설명</th><th>CLI</th></tr></thead>
+        <tbody>
+          <tr><td>Save</td><td>XML/idx → image + CSV 저장 (Puppeteer 렌더링)</td><td><code>xml-save-process</code> · <code>idx-save-process</code></td></tr>
+          <tr><td>Visualize</td><td>thumbnail XML을 브라우저에 즉시 표시 (미리보기)</td><td><code>xml-visualize-process</code></td></tr>
+          <tr><td>Element 추출</td><td>요소별 이미지 추출 (priority 순, 그룹 옵션) — 파일명 <code>{tplID}_{page}_{el}.png</code></td><td>별도 프로세스</td></tr>
+        </tbody>
+      </table>
+
+      <h4>설계 디테일</h4>
+      <ul>
+        <li><strong>CSV 메타 스키마</strong> — template_idx, page_num, sheet_key, tag, text_content, font, position(left/top), priority, group_id 등.</li>
+        <li><strong>SIMPLE_TEXT 구조 반영</strong> — <code>rp</code>(font color/size/weight/italic/underline/effect) / <code>bp</code>(vertical·horizontal align) 속성 파싱.</li>
+        <li><strong>그룹·복합 요소</strong> — GRID·FrameItem·SvgImageFrame 등 내부 중첩 요소를 리스트로 보존.</li>
+        <li><strong>Python ↔ Node 연동</strong>, Docker 패키징, ECR 자동 배포까지 점진적으로 발전.</li>
+      </ul>
+
+      <p>
+        <span class="tag">Python</span>
+        <span class="tag">Node.js</span>
+        <span class="tag">Puppeteer</span>
+        <span class="tag">XML Parser</span>
+        <span class="tag">CLI Tooling</span>
+        <span class="tag">Docker · EC2 · S3 · ECR</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== INTERNAL TOOLS ===================== -->
+<section id="internal-tools">
+  <div class="container">
+    <div class="section-title">
+      <span class="num">07</span>
+      <h2>Internal Tools (Admin / Backoffice)</h2>
+    </div>
+    <p class="section-desc">기획서 없이 스스로 문제를 정의하고 만든 내부 도구들.</p>
+
+    <!-- OpenAI Cost Dashboard -->
+    <div class="project">
+      <div class="project-head">
+        <div>
+          <div class="project-title">OpenAI 비용 대시보드 — 전사 AI 비용 가시화</div>
+          <div class="project-tags" style="margin-top:6px;">
+            <span class="role-tag">기획·설계 Owner</span>
+            <span class="role-tag">스키마 정의</span>
+            <span class="role-tag">Databricks Job 운영</span>
+          </div>
+        </div>
+        <span class="project-period">2025 · MGRSERVER</span>
+      </div>
+
+      <h4>문제 정의</h4>
+      <p>
+        여러 팀·서비스에서 OpenAI를 사용하면서 <strong>"어디서 얼마나 쓰는지" 파악·예산 관리</strong>가 어려웠습니다.
+        Costs API는 계정 전체 합계만 제공해 <strong>프로젝트별 분해가 불가능</strong>했고, 별도 분석 시스템이 필요했습니다.
+      </p>
+
+      <h4>접근 (단계별)</h4>
+      <ul>
+        <li><strong>1) 사용 현황 전수 조사</strong> — Default API Key 문제(이름·프로젝트 연동·비용 구분 불가) 정리, <strong>별도 키 발급</strong>으로 추적 가능하게 설계.</li>
+        <li><strong>2) Usage API vs Costs API 비교</strong> — Usage API + 모델별 단가 수동 계산이 프로젝트별 비용 산정의 유일한 방법임을 문서화.</li>
+        <li><strong>3) 분류 체계</strong> — <em>환경 = Project / 기능 = API Key</em>, 명명 규칙 <code>기능-환경</code> (예: <code>MDI-workflow-dev</code>).</li>
+        <li><strong>4) 비용 테이블 스키마 정의</strong> — start_time, input/output_tokens, project_id, api_key_id, model, input_cached_tokens, num_model_requests 등.</li>
+        <li><strong>5) Databricks Job 수집 파이프라인</strong> — 일별 Usage API 호출, 응답 스키마 변경 이슈는 <code>mergeSchema</code> 옵션으로 해결.</li>
+      </ul>
+
+      <h4>비용 계산식</h4>
+      <div class="arch-box"><span class="comment"># 일반</span>
+cost = (input_tokens + output_tokens) / 1000 × <span class="val">model_unit_price</span>
+
+<span class="comment"># 캐시 적용 시</span>
+cost = (input_tokens - input_cached_tokens)/1000 × <span class="val">input_price</span>
+     + (input_cached_tokens/1000) × <span class="val">cached_input_price</span>
+     + (output_tokens/1000) × <span class="val">output_price</span></div>
+
+      <p>
+        <span class="tag">OpenAI Usage API</span>
+        <span class="tag">Databricks Job</span>
+        <span class="tag">Schema Design</span>
+        <span class="tag">Admin Key / Secret Scope</span>
+        <span class="tag">Google Sheets (Pricing)</span>
+      </p>
+    </div>
+
+    <!-- 2.0 Json 배치 / 표차트 / Gradio / MORDOR -->
+    <div class="project">
+      <div class="project-head">
+        <div>
+          <div class="project-title">기타 내부 도구 / PoC</div>
+        </div>
+      </div>
+
+      <ul>
+        <li><strong>2.0 디자인(JSON) 관련 배치 5종</strong> — 템플릿 재저장 API 호출 배치, 1.0→2.0 컨버터 에러 대응(템플릿/조합요소/SVG), AI 모델 기반 이미지 비교·육안검사 시트 생성(AI-599), 육안 통과 JSON DB 저장 API 배치, 합성기 포맷별(webp/pptx/pdf/mp4/gif) 합성 요청 배치.</li>
+        <li><strong>표·차트 생성기 (AI-821)</strong> — 표/차트 자동·반자동 생성 도구 설계·구현·연동.</li>
+        <li><strong>Gradio AI 모델 데모 UI (AI-741)</strong> — Python·Gradio 기반 AI 모델 데모 UI 설계·구현, 모델 엔드포인트 연동.</li>
+        <li><strong>MORDOR 덤프·스냅샷 자동화</strong> — 명령 한 번 실행으로 dump 파일·스냅샷 생성 자동화 스크립트.</li>
+        <li><strong>비즈하우스 정합성 배치</strong> — 정합성 평가 시스템 확장 적용.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TIMELINE / GROWTH ===================== -->
+<section id="timeline" style="background:#f8fafc;">
+  <div class="container">
+    <div class="section-title">
+      <span class="num">08</span>
+      <h2>Career Growth Timeline</h2>
+    </div>
+    <p class="section-desc">2024 → 2025 H1 → 2025 H2 — "디자인 온톨로지 제품 중심 개발의 지속적 성장" 스토리.</p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="when">2024 Q4</div>
+        <div class="title">데이터 파이프라인·내부 도구 기반 다지기</div>
+        <div class="desc">xml-image-csv-converter 학습 데이터 생성기 개발(AI Researcher용 모듈화), DinoV2 기반 정합성 평가 inference·프로젝트 코드 구현.
+        리드 평가: <em>"사용자 문제 해결 중심의 프로덕트 지향성, 빠른 실험과 검증."</em></div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="when">2025 H1</div>
+        <div class="title">데이터 품질 시스템 + 파이프라인 자동화 + PoC</div>
+        <div class="desc">정합성 모델 dreamsim 채택(육안 88%↓), AI 학습 데이터 적재 SQS→Airflow 중앙화, Canva 크롤러·요소 추출, 표·차트 생성기·Gradio UI, 2.0 JSON 배치 5종.</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="when">2025 H2</div>
+        <div class="title">Agent System + 대규모 추출 + DevOps 전환</div>
+        <div class="desc">Agentic RLSC Generator 구현(목표 全 구간 초과, 14만+ pages 추출), xml-converter Airflow+AWS Batch 자동화로 EC2 수동 운영 제거, OpenAI 비용 대시보드 기획·구축.
+        리드 평가: <em>"PM 하셔도 잘하실 것 같다 — 목적 중심의 사용자 문제 해결, 기획서 없이 스스로 문제 정의."</em></div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="when">Next</div>
+        <div class="title">AI Agent Engineering · 시스템 효율</div>
+        <div class="desc">JSON-image-CSV converter 추출 metadata DB화로 Researcher 셀프 쿼리 환경 제공, AI Agent 기반 역량 강화, 일정·리스크 관리 강화.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== STRENGTH / WORKING STYLE ===================== -->
+<section id="strength">
+  <div class="container">
+    <div class="section-title">
+      <span class="num">09</span>
+      <h2>Working Style & Strengths</h2>
+    </div>
+
+    <div class="summary-grid">
+      <div class="summary-item">
+        <span class="icon">1</span>
+        <p><strong>Why → How 사고</strong> — "기능 관점이 아닌 목적 중심으로 사용자 문제를 해결" (리드 피드백). PM 마인드의 엔지니어.</p>
+      </div>
+      <div class="summary-item">
+        <span class="icon">2</span>
+        <p><strong>주도성</strong> — 비용 대시보드·기술 부채 자동화 모두 기획서 없이 직접 정의·실행.</p>
+      </div>
+      <div class="summary-item">
+        <span class="icon">3</span>
+        <p><strong>Cross-functional 협업</strong> — PM·AI Researcher·백엔드·검탐/MORDOR 스쿼드와의 다중 스쿼드 협업 경험.</p>
+      </div>
+      <div class="summary-item">
+        <span class="icon">4</span>
+        <p><strong>책임감·납기 준수</strong> — 14만+ Agentic RLSC 프로젝트도 "납기 지연 없음, 목표 초과" 평가.</p>
+      </div>
+      <div class="summary-item">
+        <span class="icon">5</span>
+        <p><strong>PoC ↔ MVP 전환</strong> — 50가지 PoC 실험 → 모델 채택 → 배치 반영의 전체 사이클 직접 수행.</p>
+      </div>
+      <div class="summary-item">
+        <span class="icon">6</span>
+        <p><strong>리스크 판단력</strong> — Canva 크롤링에서 기술 가능성을 입증하면서도 법적·보안 리스크로 진행 중지를 결정.</p>
+      </div>
+    </div>
+
+    <h4 style="margin-top:30px; font-size:15px; color:#0f172a; font-weight:700; padding-bottom:8px; border-bottom:1px solid #e2e8f0;">성장 회고 (2025 셀프리뷰)</h4>
+    <ul style="margin-top:12px;">
+      <li style="list-style:none; padding:6px 0; font-size:14px; color:#334155;"><strong>강화 영역</strong> — 80점에서 멈추지 않는 임팩트, 동일 맥락 작업의 시스템 확장 적용, 일정·리스크 관리.</li>
+      <li style="list-style:none; padding:6px 0; font-size:14px; color:#334155;"><strong>방향</strong> — AI Agent 엔지니어링 역량 강화 (프론트/백 구분이 약화되는 시대에 맞는 풀스택 + Agent 설계 능력).</li>
+      <li style="list-style:none; padding:6px 0; font-size:14px; color:#334155;"><strong>문서화 습관</strong> — 변경 모듈 다이어그램화, 사전 설계 리뷰, 우선순위 정리·팀 공유 루틴화.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== JD MAPPING ===================== -->
+<section id="jd-mapping" style="background:#f8fafc;">
+  <div class="container">
+    <div class="section-title">
+      <span class="num">10</span>
+      <h2>JD Mapping (Product Engineer + PM 직무 연결)</h2>
+    </div>
+    <p class="section-desc">자격요건·우대사항을 실제 프로젝트와 연결한 매핑입니다.</p>
+
+    <table class="compare-table">
+      <thead><tr><th style="width:28%;">JD 항목</th><th>나의 경험·증거</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>제품 중심 개발</strong></td>
+          <td>디자인 온톨로지(RLSC), Agent System, AI 프레젠테이션 파이프라인 — Why에서 출발해 사용자 문제를 정의·해결</td>
+        </tr>
+        <tr>
+          <td><strong>풀스택 개발</strong></td>
+          <td>TypeScript + Next.js 백오피스 UI, Supabase(PostgreSQL) 스키마 설계, REST API · pg-boss 큐, 워커</td>
+        </tr>
+        <tr>
+          <td><strong>AI/LLM 연동</strong></td>
+          <td>OpenAI API + Langfuse + 프롬프트·피드백 설계, Agentic 워크플로우, Gradio 데모</td>
+        </tr>
+        <tr>
+          <td><strong>데이터 품질 시스템</strong></td>
+          <td>14만+ 템플릿, dreamsim 정합성(육안 88%↓), Evaluator 기반 품질 검증, TP/TN/FP 지표 분석</td>
+        </tr>
+        <tr>
+          <td><strong>내부 도구(Admin)</strong></td>
+          <td>OpenAI 비용 대시보드, 배치 관리 백오피스(Next.js), Databricks Job</td>
+        </tr>
+        <tr>
+          <td><strong>빠른 실험·검증 (PoC→MVP)</strong></td>
+          <td>50가지 버전 PoC, 1·2·3차 정답률 검증 후 14만 페이지 전체 적용 결정</td>
+        </tr>
+        <tr>
+          <td><strong>크롤링/데이터 수집</strong></td>
+          <td>Puppeteer · iframe DOM · CloudFlare 우회 · user-agent 랜덤화 · VBA·win32com 전처리</td>
+        </tr>
+        <tr>
+          <td><strong>DevOps/인프라</strong></td>
+          <td>Docker · GitHub Actions OIDC · AWS Batch/ECR/S3 · Airflow · SQS · Dockerfile 캐시 최적화</td>
+        </tr>
+        <tr>
+          <td><strong>PM-mindset</strong></td>
+          <td>리드 피드백 "PM 하셔도 잘하실 것 같다" / 기획 없이 비용 대시보드 기획·구축·운영 / Cross-functional 협업</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===================== REFERENCES ===================== -->
+<section id="references">
+  <div class="container">
+    <div class="section-title">
+      <span class="num">11</span>
+      <h2>References (Confluence / Jira)</h2>
+    </div>
+    <p class="section-desc">사내 시스템 접근 권한이 있는 면접관용 출처 링크입니다.</p>
+
+    <div class="ref-list">
+      <a href="https://miridih.atlassian.net/wiki/spaces/~712020a23635f8190743df9448a03c47cdb090/pages/1065779444" target="_blank">2025 성과아카이브 DX개발 문지혜</a>
+      <a href="https://miridih.atlassian.net/wiki/spaces/~712020a23635f8190743df9448a03c47cdb090/pages/1131316280" target="_blank">2025 성과 리뷰 DX개발 문지혜</a>
+      <a href="https://miridih.atlassian.net/wiki/spaces/~712020a23635f8190743df9448a03c47cdb090/pages/2036466640" target="_blank">2025 하반기 셀프리뷰 & 성과리뷰</a>
+      <a href="https://miridih.atlassian.net/wiki/spaces/~712020a23635f8190743df9448a03c47cdb090/pages/727942609" target="_blank">2024 리드-팀원 성과리뷰</a>
+      <a href="https://miridih.atlassian.net/wiki/spaces/~712020a23635f8190743df9448a03c47cdb090/pages/1901461616" target="_blank">Agentic RLSC Structuriser 전체 파이프라인</a>
+      <a href="https://miridih.atlassian.net/browse/MOR-595" target="_blank">Jira MOR-595 (Agentic RLSC)</a>
+      <a href="https://miridih.atlassian.net/browse/MOR-622" target="_blank">Jira MOR-622</a>
+      <a href="https://miridih.atlassian.net/browse/MOR-577" target="_blank">Jira MOR-577</a>
+      <a href="https://miridih.atlassian.net/browse/AI-785" target="_blank">Jira AI-785 (정합성 dreamsim)</a>
+      <a href="https://miridih.atlassian.net/browse/AI-502" target="_blank">Jira AI-502 (이미지 유사도)</a>
+      <a href="https://miridih.atlassian.net/browse/AI-527" target="_blank">Jira AI-527 (합성 API·S3)</a>
+      <a href="https://miridih.atlassian.net/browse/AI-543" target="_blank">Jira AI-543 (배치·병렬처리)</a>
+      <a href="https://miridih.atlassian.net/browse/AI-697" target="_blank">Jira AI-697 (SQS 자동화)</a>
+      <a href="https://miridih.atlassian.net/browse/AI-796" target="_blank">Jira AI-796 (Airflow 중앙화)</a>
+      <a href="https://miridih.atlassian.net/browse/AI-821" target="_blank">Jira AI-821 (표·차트 생성기)</a>
+      <a href="https://miridih.atlassian.net/browse/AI-741" target="_blank">Jira AI-741 (Gradio UI)</a>
+      <a href="https://miridih.atlassian.net/wiki/spaces/AIDMLOps/pages/584451340" target="_blank">xml-image-csv-converter 1.0</a>
+      <a href="https://miridih.atlassian.net/wiki/spaces/AIDMLOps/pages/979599696" target="_blank">아키텍처 변경 - EC2</a>
+      <a href="https://miridih.atlassian.net/wiki/spaces/AIDMLOps/pages/959645183" target="_blank">Docker 빌드·ECR 자동화</a>
+      <a href="https://miridih.atlassian.net/wiki/spaces/MGRSERVER/folder/1203307187" target="_blank">AI 비용 대시보드 폴더</a>
+      <a href="https://miridih.atlassian.net/wiki/spaces/AIDMLOps/pages/882737394" target="_blank">딱 맞는 디자인 찾기 파이프라인</a>
+      <a href="https://miridih.atlassian.net/wiki/spaces/AIDMLOps/pages/882509913" target="_blank">저퀄리티 분류 모델 파이프라인</a>
+      <a href="https://github.com/miridih/ailabs-similarity-score" target="_blank">GitHub: ailabs-similarity-score</a>
+      <a href="https://github.com/miridih/ailabs-get-ai-data" target="_blank">GitHub: ailabs-get-ai-data</a>
+    </div>
+  </div>
+</section>
+
+</div><!-- /.page -->
+
+<footer class="footer">
+  <div class="container">
+    <p><strong>문지혜 — Product Engineer Portfolio</strong></p>
+    <p style="margin-top:6px; font-size:12px;">2024–2025 회사 성과 정리 · Confluence/Jira 출처 기반 · 인쇄 시 Ctrl+P / Cmd+P</p>
+  </div>
+</footer>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
